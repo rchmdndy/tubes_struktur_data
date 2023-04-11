@@ -10,23 +10,17 @@ Buat dua kelompok data, data tersedia dan penjualan, minimal 6 list, 3 list ters
 
 ### Tersedia
 
-Lihat data
-
-Cari 
-
-Tambah data
-
-Hapus data
-
-Beli
+- Lihat data
+- Cari data
+- Tambah data
+- Hapus data
+- Beli
 
 ### Penjualan
 
-Lihat data
-
-Hitung jumlah data 
-
-Hitung pendapatan
+- Lihat data
+- Hitung jumlah data 
+- Hitung pendapatan
 
 ![Untitled](https://raw.githubusercontent.com/rchmdndy/tubes_struktur_data/master/gambar/ketentuan_program.png)
 
