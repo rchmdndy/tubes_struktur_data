@@ -52,3 +52,7 @@ Hitung pendapatan
 
 - Hitung jumlah barang yang terjual dengan menghitung jumlah data yang ada di linked list barang terjual. Misal baju terjual 1, celana terjual 1.
 - Hitung jumlah pendapatan dengan menambahkan seluruh harga barang di linked list data penjualan. Misal pendapatan dari baju 100k, dari celana 80k, total 180k
+
+
+## Mindmap
+![Mindmap](https://raw.githubusercontent.com/rchmdndy/tubes_struktur_data/master/mindmap_tubes.png)
