@@ -49,4 +49,4 @@ Buat dua kelompok data, data tersedia dan penjualan, minimal 6 list, 3 list ters
 
 
 ## Mindmap
-![Mindmap](https://raw.githubusercontent.com/rchmdndy/tubes_struktur_data/master/mindmap_tubes.png)
+![Mindmap](https://raw.githubusercontent.com/rchmdndy/tubes_struktur_data/master/gambar/mindmap_tubes.png)
