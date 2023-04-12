@@ -1,10 +1,10 @@
 package org.example;
 
-public class elemen {
+public class Elemen {
 
-    elemen next;
-    elemen prev;
-    elemen (String nama, String penulis, String penerbit, int harga){
+    Elemen next;
+    Elemen prev;
+    Elemen(String nama, String penulis, String penerbit, int harga){
         info = new data(nama, penulis, penerbit, harga);
         next = null;
         prev = null;
