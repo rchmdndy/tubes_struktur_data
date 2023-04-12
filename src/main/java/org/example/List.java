@@ -5,10 +5,11 @@ package org.example;
  */
 public class List {
 
-    Elemen first;
+    Elemen first, last;
 
     List() {
         first = null;
+        last = null;
     }
 
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
