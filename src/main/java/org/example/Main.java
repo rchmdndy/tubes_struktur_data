@@ -24,11 +24,11 @@ public class Main {
                         case 1 -> {
                             switch(tidy.kategori_buku()){
                                 // Tampilkan seluruh buku dari list pengetahuan
-                                case 1 -> {}
+                                case 1 -> {pengetahuan_tersedia.print();}
                                 // Tampilkan seluruh buku dari list fiksi
-                                case 2 -> {}
+                                case 2 -> {fiksi_tersedia.print();}
                                 // Tampilkan seluruh buku dari list religi
-                                case 3 -> {}
+                                case 3 -> {religi_tersedia.print();}
                             };
                         }
                         // Cari buku
@@ -122,11 +122,17 @@ public class Main {
                         case 5 -> {
                             switch(tidy.kategori_buku()){
                                 // Pengetahuan
-                                case 1 -> {}
+                                case 1 -> {
+                                    pengetahuan_tersedia.print();
+                                }
                                 // Fiksi
-                                case 2 -> {}
+                                case 2 -> {
+                                    fiksi_tersedia.print();
+                                }
                                 // Religi
-                                case 3 -> {}
+                                case 3 -> {
+                                    religi_tersedia.print();
+                                }
                             }
                         }
                         // Keluar
