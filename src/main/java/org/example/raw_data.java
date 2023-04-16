@@ -99,22 +99,4 @@ public class raw_data {
                                "H.G. Wells", 
                                "William Heinemann", 
                                85000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                               
-                               
 }
