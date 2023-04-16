@@ -50,5 +50,53 @@ public class raw_data {
                                "Aldous Huxley", 
                                "Chatto & Windus", 
                                95000);
-   
+                               data buku11 = new data("The Lord of the Rings", 
+                               "J.R.R. Tolkien", 
+                               "George Allen & Unwin", 
+                               180000);
+        
+        data buku12 = new data("The Da Vinci Code", 
+                               "Dan Brown", 
+                               "Doubleday", 
+                               95000);
+        
+        data buku13 = new data("The Hunger Games", 
+                               "Suzanne Collins", 
+                               "Scholastic", 
+                               75000);
+        
+        data buku14 = new data("The Alchemist", 
+                               "Paulo Coelho", 
+                               "HarperCollins", 
+                               85000);
+        
+        data buku15 = new data("The Chronicles of Narnia", 
+                               "C.S. Lewis", 
+                               "Geoffrey Bles", 
+                               130000);
+        
+        data buku16 = new data("The Girl with the Dragon Tattoo", 
+                               "Stieg Larsson", 
+                               "Norstedts Förlag", 
+                               120000);
+        
+        data buku17 = new data("The Fault in Our Stars", 
+                               "John Green", 
+                               "Dutton Books", 
+                               90000);
+        
+        data buku18 = new data("The Adventures of Sherlock Holmes", 
+                               "Arthur Conan Doyle", 
+                               "George Newnes Ltd", 
+                               80000);
+        
+        data buku19 = new data("The Picture of Dorian Gray", 
+                               "Oscar Wilde", 
+                               "Ward, Lock & Co", 
+                               75000);
+        
+        data buku20 = new data("The War of the Worlds", 
+                               "H.G. Wells", 
+                               "William Heinemann", 
+                               85000);
 }
