@@ -34,7 +34,7 @@ public class menu {
         System.out.println("1. Hitung pendapatan");
         System.out.println("2. Lihat buku yang terjual");
         System.out.println("3. Hitung jumlah buku yang terjual");
-        System.out.println("6. Keluar");
+        System.out.println("4. Keluar");
         System.out.print("Pilihan : ");
         int pilihan = s.nextInt();
         System.out.println("=============");

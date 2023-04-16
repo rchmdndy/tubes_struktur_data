@@ -136,7 +136,7 @@ public class Main {
                             }
                         }
                         // Keluar
-                        case 6 -> {System.exit(0);}
+                        case 6 -> {break;}
                         default -> System.out.println("Pilihan tidak ada!");
                     }
                 }
@@ -150,7 +150,7 @@ public class Main {
                         // Hitung jumlah buku yang terjual
                         case 3 -> {}
                         // Keluar
-                        case 4 -> {System.exit(0);}
+                        case 4 -> {break;}
                         default -> System.out.println("Pilihan tidak ada");
                     }
                 }
