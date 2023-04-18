@@ -2,7 +2,6 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO : coba-coba
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -30,7 +29,7 @@ public class Main {
                                 case 2 -> {fiksi_tersedia.print();}
                                 // Tampilkan seluruh buku dari list religi
                                 case 3 -> {religi_tersedia.print();}
-                            };
+                            }
                         }
                         // Cari buku
                         case 2 -> {

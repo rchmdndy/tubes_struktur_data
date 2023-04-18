@@ -12,6 +12,12 @@ public class List {
         last = null;
     }
 
+    void insertRawData(Elemen first, Elemen last, data[] buku){
+        for (data books : buku){
+            Elemen newElemen = new Elemen(null, null, null, 0);
+        }
+    }
+
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) first = elemen_baru;
