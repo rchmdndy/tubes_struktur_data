@@ -1,7 +1,7 @@
 package org.example;
 
 public class raw_data {
-   data[] fiksi = {
+   static data[] fiksi = {
       new data("Brave New World", 
          "Aldous Huxley", 
          "Chatto & Windus", 
@@ -53,7 +53,7 @@ public class raw_data {
          105000)
 
    };
-   data [] pengetahuan = {
+   static data [] pengetahuan = {
       new data("A Brief History of Time", 
          "Stephen Hawking", 
          "Bantam Books", 
@@ -105,8 +105,8 @@ public class raw_data {
          95000)
 
    };
-   data[] religi = {
-      new data("Fiqh Us-Sunnah", 
+   static data[] religi = {
+      new data("Fiqh Us-Sunnah",
          "Sayyid Sabiq", 
          "International Islamic Publishing House", 
          105000),

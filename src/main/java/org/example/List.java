@@ -20,34 +20,36 @@ public class List {
 
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
-        if (first == null) first = elemen_baru;
-        else{
+        if (first == null) {
+            first = elemen_baru;
+            last = elemen_baru;
+        }
+        else {
             elemen_baru.next = first;
             first.prev = elemen_baru;
-            //3. Arahkan first ke elemenfirst.prev = elemen_baru; baru
             first = elemen_baru;
         }
     }
 
     void insertAt(String nama, String penulis, String penerbit, int harga, String info_dicari) {
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             // Linked list kosong
-            first = new Elemen(nama, penulis, penerbit, harga);
+            first = elemenBaru;
             first.next = first;
             first.prev = first;
         } else {
-            Elemen elemenSementara = first;
-            Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
+            Elemen current = first;
             while (true) {
-                if (elemenSementara.info.nama.equals(info_dicari)) {
-                    elemen_baru.next = elemenSementara.next;
-                    elemenSementara.next.prev = elemen_baru;
-                    elemen_baru.prev = elemenSementara;
-                    elemenSementara.next = elemen_baru;
+                if (current.info.nama.equals(info_dicari)) {
+                    elemenBaru.next = current.next;
+                    current.next.prev = elemenBaru;
+                    current.next = elemenBaru;
+                    elemenBaru.prev = current;
                     break;
                 } else {
-                    elemenSementara = elemenSementara.next;
-                    if (elemenSementara == first) {
+                    current = current.next;
+                    if (current.next == null) {
                         // Tidak ada elemen yang sesuai dengan info_dicari
                         break;
                     }
@@ -57,16 +59,28 @@ public class List {
     }
     void insertLast(String nama, String penulis, String penerbit, int harga) {
         // buat elemen baru
-        Elemen elemen = new Elemen(nama, penulis, penerbit, harga);
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
+
+        // Blok kode yang dijalankan jika list kosong
         if (first == null) {
-            first = elemen;
-        } else {
-            Elemen elementSementara = first;
-            while (elementSementara.next != null) {
-                elementSementara = elementSementara.next;
+            first = elemenBaru;
+            last = elemenBaru;
+        }
+
+        // Blok kode yang dijalankan jika list tidak kosong
+        else {
+            // Buat elemen current, yang menunjuk ke first
+            Elemen current = first;
+
+            /* Selama next sebuah elemen belum null(atau belum last, dikarenakan last.next adalah null)
+            maka pindah current ke elemen selanjutnya */
+            while (current.next != null) {
+                current = current.next;
             }
-            elementSementara.next = elemen;
-            elemen.prev = elementSementara.next;
+
+            // Jika sudah sampai pada elemen dengan next = null, jalankan kode blok ini
+            current.next = elemenBaru;
+            elemenBaru.prev = current;
         }
     }
 
@@ -138,11 +152,13 @@ public class List {
             while(elemenSementara != null) {
                 int i = 0;
                 i++;
+                System.out.println("================================");
                 System.out.println("Buku " + i);
                 System.out.println("Nama pahlawan : "+(elemenSementara.info.nama));
                 System.out.println("Nama penulis : "+(elemenSementara.info.penulis));
                 System.out.println("Nama penerbit : "+(elemenSementara.info.penerbit));
                 System.out.println("Harga : Rp."+(elemenSementara.info.harga));
+                System.out.println("================================");
                 elemenSementara = elemenSementara.next;
             }
         }

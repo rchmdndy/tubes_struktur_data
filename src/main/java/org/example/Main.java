@@ -14,7 +14,8 @@ public class Main {
 
         String nama, penulis, penerbit;
         int harga;
-
+        //Coba fungsi insert first
+        pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
         do {
             switch (menu.menu_utama()) {
                 // Gudang / tersedia
