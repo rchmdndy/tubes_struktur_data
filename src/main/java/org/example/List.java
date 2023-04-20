@@ -32,30 +32,26 @@ public class List {
     }
 
     void insertAt(String nama, String penulis, String penerbit, int harga, String info) {
+        Elemen current = first;
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
-            // Linked list kosong
             first = elemenBaru;
-            last = elemenBaru;
         } else {
-            Elemen current = first;
-            while (true) {
+            while (current != null) {
                 if (current.info.nama.equals(info)) {
                     elemenBaru.next = current.next;
-                    current.next.prev = elemenBaru;
-                    current.next = elemenBaru;
-                    elemenBaru.prev = current;
-                    break;
-                } else {
-                    current = current.next;
-                    if (current.next == null) {
-                        // Tidak ada elemen yang sesuai dengan info_dicari
-                        break;
+                    if (current.next != null) {
+                        current.next.prev = elemenBaru;
                     }
+                    elemenBaru.prev = current;
+                    current.next = elemenBaru;
+                    break;
                 }
+                current = current.next;
             }
         }
     }
+    
     void insertLast(String nama, String penulis, String penerbit, int harga) {
         // buat elemen baru
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);

@@ -20,7 +20,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
         Scanner s2  = new Scanner(System.in);
         //Coba fungsi insert first
-        pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
+        pengetahuan_tersedia.insertFirst("Test 2", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
         do {
             switch (menu.menu_utama()) {
@@ -129,6 +129,19 @@ public class Main {
                                         }
                                         // Tambah buku pada suatu lokasi
                                         case 2 -> {
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
+                                            System.out.print("Masukkan buku yang dicari > ");
+                                            info = s2.nextLine();
+                                            fiksi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
@@ -171,7 +184,19 @@ public class Main {
                                         }
                                         // Tambah buku pada suatu lokasi
                                         case 2 -> {
-
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
+                                            System.out.print("Masukkan buku yang dicari > ");
+                                            info = s2.nextLine();
+                                            religi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
