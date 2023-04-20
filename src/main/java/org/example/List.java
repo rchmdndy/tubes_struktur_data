@@ -12,12 +12,6 @@ public class List {
         last = null;
     }
 
-    void insertRawData(Elemen first, Elemen last, data[] buku){
-        for (data books : buku){
-            Elemen newElemen = new Elemen(null, null, null, 0);
-        }
-    }
-
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
@@ -53,27 +47,16 @@ public class List {
     }
     
     void insertLast(String nama, String penulis, String penerbit, int harga) {
-        // buat elemen baru
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
-
-        // Blok kode yang dijalankan jika list kosong
         if (first == null) {
             first = elemenBaru;
             last = elemenBaru;
         }
-
-        // Blok kode yang dijalankan jika list tidak kosong
         else {
-            // Buat elemen current, yang menunjuk ke first
             Elemen current = first;
-
-            /* Selama next sebuah elemen belum null(atau belum last, dikarenakan last.next adalah null)
-            maka pindah current ke elemen selanjutnya */
             while (current.next != null) {
                 current = current.next;
             }
-
-            // Jika sudah sampai pada elemen dengan next = null, jalankan kode blok ini
             current.next = elemenBaru;
             elemenBaru.prev = current;
         }
@@ -83,19 +66,15 @@ public class List {
         if (first.next == null){
             first = null;
         }
-
         else if (first != null) {
             Elemen current = first;
             Elemen beforeLast = null;
 
-            while (current.next != null) {
+            while (current != last) {
                 beforeLast = current;
                 current = current.next;
-
             }
             beforeLast.next = null;
-            current.prev = null;
-
         }
     }
 
@@ -109,33 +88,30 @@ public class List {
         }
     }
 
-    void deleteAt(int index) {
+    void deleteAt(String info){
         if (first == null) {
-            System.out.println("List Kosong");
-        } else {
+            System.out.println("Data kosong!");
+        }
+        else{
             Elemen current = first;
-            int count = 0;
-            while (current != null) {
-                if (count == index) {
-                    if (current == first) {
-                        first = first.next;
-                    }
-                    else if (current.next != null) {
-                        current.next.prev = current.prev;
-                    }
-                    else if (current.prev != null) {
-                        current.prev.next = current.next;
-                    }
-                    current = null;
-                    System.out.println("Elemen pada indeks " + index + " berhasil dihapus");
-                    break;
-                }
+            Elemen beforeLast = null;
+            while (!current.info.nama.equals(info)){
+                beforeLast = current;
                 current = current.next;
-                count++;
-                if (current == first) {
-                    System.out.println("Indeks yang diminta melebihi batas");
-                    break;
+            }
+            if (current.next == null){
+                beforeLast.next = null;
+            } else if (info.equals(first.info.nama)) {
+                first = current.next;
+                first.prev = null;
+                if (first.next == null) {
+                    last = first;
                 }
+            } else if (current.info.nama.equals(info)){
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+            }else{
+                System.out.println("Data yang dicari tidak ada!");
             }
         }
     }
