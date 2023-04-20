@@ -31,7 +31,7 @@ public class List {
         }
     }
 
-    void insertAt(String nama, String penulis, String penerbit, int harga, String info_dicari) {
+    void insertAt(String nama, String penulis, String penerbit, int harga, String info) {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             // Linked list kosong
@@ -41,7 +41,7 @@ public class List {
         } else {
             Elemen current = first;
             while (true) {
-                if (current.info.nama.equals(info_dicari)) {
+                if (current.info.nama.equals(info)) {
                     elemenBaru.next = current.next;
                     current.next.prev = elemenBaru;
                     current.next = elemenBaru;

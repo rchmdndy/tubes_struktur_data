@@ -1,7 +1,9 @@
 package org.example;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // TODO: Fix insertAt method, integrate functioning method at the rest of the genre
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -12,8 +14,11 @@ public class Main {
         List fiksi_terjual = new List();
         List religi_terjual = new List();
 
-        String nama, penulis, penerbit;
-        int harga;
+        String nama, penulis, penerbit, info;
+        int harga, total;
+        int i = 0;
+        Scanner s = new Scanner(System.in);
+        Scanner s2  = new Scanner(System.in);
         //Coba fungsi insert first
         pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
         do {
@@ -50,11 +55,54 @@ public class Main {
                                 case 1 -> {
                                     switch (menu.menu_add()) {
                                         // Tambah depan
-                                        case 1 -> {break;}
+                                        case 1 -> {
+                                            System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                            total = s.nextInt();
+                                            while (i < total) {
+                                                System.out.print("Masukkan nama buku : ");
+                                                nama = s2.nextLine();
+                                                System.out.print("Masukkan nama penulis : ");
+                                                penulis = s2.nextLine();
+                                                System.out.print("Masukkan nama penerbit : ");
+                                                penerbit = s2.nextLine();
+                                                System.out.print("Masukkan harga : ");
+                                                harga = s.nextInt();
+                                                pengetahuan_tersedia.insertFirst(nama, penulis, penerbit, harga);
+                                                i++;
+                                            }
+                                        }
                                         // Tambah buku pada suatu lokasi
-                                        case 2 -> {break;}
+                                        case 2 -> {
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
+                                            System.out.print("Masukkan buku yang dicari > ");
+                                            info = s2.nextLine();
+                                            pengetahuan_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                        }
                                         // Tambah belakang
-                                        case 3 -> {break;}
+                                        case 3 -> {
+                                        System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                        total = s.nextInt();
+                                        while (i < total) {
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            pengetahuan_tersedia.insertLast(nama, penulis, penerbit, harga);
+                                            i++;
+                                            }
+                                        }
                                     }
                                 }
                                 // Fiksi
