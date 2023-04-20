@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO : Repair insertAt method, making the last data detected
+        // TODO : fix fungsi beli buku, buat sih, soalnya belum ada
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -20,6 +20,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
         Scanner s2  = new Scanner(System.in);
         //Coba fungsi insert first
+        pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 2", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
         do {
@@ -226,33 +227,48 @@ public class Main {
                                 case 1 -> {
                                     switch (menu.menu_delete()) {
                                         // Hapus depan
-                                        case 1 -> {break;}
+                                        case 1 -> pengetahuan_tersedia.deleteFirst();
                                         // Hapus buku pada suatu lokasi
-                                        case 2 -> {break;}
+                                        case 2 -> {
+                                            pengetahuan_tersedia.print();
+                                            System.out.println("Masukkan nama buku yang ingin dihapus : ");
+                                            info = s2.nextLine();
+                                            pengetahuan_tersedia.deleteAt(info);
+                                        }
                                         // Hapus belakang
-                                        case 3 -> {break;}
+                                        case 3 -> pengetahuan_tersedia.deleteLast();
                                     }
                                 }
                                 // Fiksi
                                 case 2 -> {
                                     switch (menu.menu_delete()) {
                                         // Hapus depan
-                                        case 1 -> {;}
+                                        case 1 -> fiksi_tersedia.deleteFirst();
                                         // Hapus buku pada suatu lokasi
-                                        case 2 -> {;}
+                                        case 2 -> {
+                                            fiksi_tersedia.print();
+                                            System.out.println("Masukkan nama buku yang ingin dihapus : ");
+                                            info = s2.nextLine();
+                                            fiksi_tersedia.deleteAt(info);
+                                        }
                                         // Hapus belakang
-                                        case 3 -> {;}
+                                        case 3 -> fiksi_tersedia.deleteLast();
                                     }
                                 }
                                 // Religi
                                 case 3 -> {
                                     switch (menu.menu_delete()) {
                                         // Hapus depan
-                                        case 1 -> {break;}
+                                        case 1 -> religi_tersedia.deleteFirst();
                                         // Hapus buku pada suatu lokasi
-                                        case 2 -> {}
+                                        case 2 -> {
+                                            religi_tersedia.print();
+                                            System.out.println("Masukkan nama buku yang ingin dihapus : ");
+                                            info = s2.nextLine();
+                                            religi_tersedia.deleteAt(info);
+                                        }
                                         // Hapus belakang
-                                        case 3 -> {}
+                                        case 3 -> religi_tersedia.deleteLast();
                                     }
                                 }
                             }
