@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: Fix insertAt method, integrate functioning method at the rest of the genre
+        // TODO : Repair insertAt method, making the last data detected
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -20,6 +20,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
         Scanner s2  = new Scanner(System.in);
         //Coba fungsi insert first
+        pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
         do {
             switch (menu.menu_utama()) {
@@ -30,11 +31,11 @@ public class Main {
                         case 1 -> {
                             switch(tidy.kategori_buku()){
                                 // Tampilkan seluruh buku dari list pengetahuan
-                                case 1 -> {pengetahuan_tersedia.print();}
+                                case 1 -> pengetahuan_tersedia.print();
                                 // Tampilkan seluruh buku dari list fiksi
-                                case 2 -> {fiksi_tersedia.print();}
+                                case 2 -> fiksi_tersedia.print();
                                 // Tampilkan seluruh buku dari list religi
-                                case 3 -> {religi_tersedia.print();}
+                                case 3 -> religi_tersedia.print();
                             }
                         }
                         // Cari buku
@@ -85,6 +86,7 @@ public class Main {
                                             System.out.print("Masukkan buku yang dicari > ");
                                             info = s2.nextLine();
                                             pengetahuan_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
@@ -109,22 +111,85 @@ public class Main {
                                 case 2 -> {
                                     switch (menu.menu_add()) {
                                         // Tambah depan
-                                        case 1 -> {}
+                                        case 1 -> {
+                                        System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                        total = s.nextInt();
+                                        while (i < total) {
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            fiksi_tersedia.insertFirst(nama, penulis, penerbit, harga);
+                                            i++;
+                                            }
+                                        }
                                         // Tambah buku pada suatu lokasi
-                                        case 2 -> {}
+                                        case 2 -> {
+                                        }
                                         // Tambah belakang
-                                        case 3 -> {}
+                                        case 3 -> {
+                                            System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                            total = s.nextInt();
+                                            while (i < total) {
+                                            System.out.print("Masukkan nama buku : ");
+                                            nama = s2.nextLine();
+                                            System.out.print("Masukkan nama penulis : ");
+                                            penulis = s2.nextLine();
+                                            System.out.print("Masukkan nama penerbit : ");
+                                            penerbit = s2.nextLine();
+                                            System.out.print("Masukkan harga : ");
+                                            harga = s.nextInt();
+                                            fiksi_tersedia.insertLast(nama, penulis, penerbit, harga);
+                                            i++;
+                                            }
+                                        }
                                     }
                                 }
                                 // Religi
                                 case 3 -> {
                                     switch (menu.menu_add()) {
                                         // Tambah depan
-                                        case 1 -> {break;}
+                                        case 1 -> {
+                                            System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                            total = s.nextInt();
+                                            while (i < total) {
+                                                System.out.print("Masukkan nama buku : ");
+                                                nama = s2.nextLine();
+                                                System.out.print("Masukkan nama penulis : ");
+                                                penulis = s2.nextLine();
+                                                System.out.print("Masukkan nama penerbit : ");
+                                                penerbit = s2.nextLine();
+                                                System.out.print("Masukkan harga : ");
+                                                harga = s.nextInt();
+                                                religi_tersedia.insertFirst(nama, penulis, penerbit, harga);
+                                                i++;
+                                            }
+                                        }
                                         // Tambah buku pada suatu lokasi
-                                        case 2 -> {;}
+                                        case 2 -> {
+
+                                        }
                                         // Tambah belakang
-                                        case 3 -> {;}
+                                        case 3 -> {
+                                            System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                            total = s.nextInt();
+                                            while (i < total) {
+                                                System.out.print("Masukkan nama buku : ");
+                                                nama = s2.nextLine();
+                                                System.out.print("Masukkan nama penulis : ");
+                                                penulis = s2.nextLine();
+                                                System.out.print("Masukkan nama penerbit : ");
+                                                penerbit = s2.nextLine();
+                                                System.out.print("Masukkan harga : ");
+                                                harga = s.nextInt();
+                                                religi_tersedia.insertLast(nama, penulis, penerbit, harga);
+                                                i++;
+                                            }
+                                        }
                                     }
                                 }
                             }

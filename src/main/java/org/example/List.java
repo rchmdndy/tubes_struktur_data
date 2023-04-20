@@ -36,8 +36,7 @@ public class List {
         if (first == null) {
             // Linked list kosong
             first = elemenBaru;
-            first.next = first;
-            first.prev = first;
+            last = elemenBaru;
         } else {
             Elemen current = first;
             while (true) {
@@ -90,16 +89,16 @@ public class List {
         }
 
         else if (first != null) {
-            Elemen elemenSementara = first;
+            Elemen current = first;
             Elemen beforeLast = null;
 
-            while (elemenSementara.next != null) {
-                beforeLast = elemenSementara;
-                elemenSementara = elemenSementara.next;
+            while (current.next != null) {
+                beforeLast = current;
+                current = current.next;
 
             }
             beforeLast.next = null;
-            elemenSementara.prev = null;
+            current.prev = null;
 
         }
     }
@@ -109,32 +108,35 @@ public class List {
             first = first.next;
             first.prev = null;
         }
+        else {
+            System.out.println("Data kosong!");
+        }
     }
 
     void deleteAt(int index) {
         if (first == null) {
             System.out.println("List Kosong");
         } else {
-            Elemen elemenSementara = first;
+            Elemen current = first;
             int count = 0;
-            while (elemenSementara != null) {
+            while (current != null) {
                 if (count == index) {
-                    if (elemenSementara == first) {
+                    if (current == first) {
                         first = first.next;
                     }
-                    else if (elemenSementara.next != null) {
-                        elemenSementara.next.prev = elemenSementara.prev;
+                    else if (current.next != null) {
+                        current.next.prev = current.prev;
                     }
-                    else if (elemenSementara.prev != null) {
-                        elemenSementara.prev.next = elemenSementara.next;
+                    else if (current.prev != null) {
+                        current.prev.next = current.next;
                     }
-                    elemenSementara = null;
+                    current = null;
                     System.out.println("Elemen pada indeks " + index + " berhasil dihapus");
                     break;
                 }
-                elemenSementara = elemenSementara.next;
+                current = current.next;
                 count++;
-                if (elemenSementara == first) {
+                if (current == first) {
                     System.out.println("Indeks yang diminta melebihi batas");
                     break;
                 }
@@ -143,23 +145,22 @@ public class List {
     }
 
     void print() {
-        Elemen elemenSementara = first;
-        if(elemenSementara == null){
+        Elemen current = first;
+        if(current == null){
             System.out.println("KOSONG");
         }
         else{
-
-            while(elemenSementara != null) {
-                int i = 0;
+            int i = 0;
+            while(current != null) {
                 i++;
                 System.out.println("================================");
                 System.out.println("Buku " + i);
-                System.out.println("Nama pahlawan : "+(elemenSementara.info.nama));
-                System.out.println("Nama penulis : "+(elemenSementara.info.penulis));
-                System.out.println("Nama penerbit : "+(elemenSementara.info.penerbit));
-                System.out.println("Harga : Rp."+(elemenSementara.info.harga));
+                System.out.println("Nama buku : "+(current.info.nama));
+                System.out.println("Nama penulis : "+(current.info.penulis));
+                System.out.println("Nama penerbit : "+(current.info.penerbit));
+                System.out.println("Harga : Rp."+(current.info.harga));
                 System.out.println("================================");
-                elemenSementara = elemenSementara.next;
+                current = current.next;
             }
         }
     }

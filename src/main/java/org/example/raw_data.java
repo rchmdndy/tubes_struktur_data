@@ -155,16 +155,5 @@ public class raw_data {
       "Imam Bukhari", 
       "Darussalam", 
       100000)
-
    };
-
-   public data[] getBuku_fiksi(){
-      return fiksi;
-   }
-   public data[] getBuku_pengetahuan(){
-      return pengetahuan;
-   }
-   public data[] getBuku_religi(){
-      return religi;
-   }
 }
