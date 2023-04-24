@@ -237,7 +237,7 @@ public class List {
             sum += current.info.harga;
             current = current.next;
         }
-        System.out.println("Jumlah harga buku yang terjual = " + sum);
+        System.out.println("Jumlah harga buku yang terjual = Rp." + sum);
     }
     void print() {
         Elemen current = first;
