@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Scanner;
 /**
  *
  * @author vina
@@ -115,6 +116,136 @@ public class List {
             }
         }
     }
+
+    void cari(String info) {
+        Elemen current = first;
+        if (current == null) {
+            System.out.println("Data buku kosong!");
+        } else {
+            while (current != null) {
+                if (info.equals(current.info.nama)) {
+                    System.out.println("Buku tersedia !");
+                    System.out.println("================================");
+                    System.out.println("Judul buku : " + (current.info.nama));
+                    System.out.println("Nama penulis : " + (current.info.penulis));
+                    System.out.println("Nama penerbit : " + (current.info.penerbit));
+                    System.out.println("Harga : Rp." + (current.info.harga));
+                    System.out.println("================================");
+                    break;
+                }
+                current = current.next;
+            }
+            if (current == null) {
+                System.out.println("Buku tidak tersedia!");
+            }
+        }
+    }void cariAfter(String info) {
+        Elemen current = first;
+        if (current == null) {
+            System.out.println("Data buku kosong!");
+        } else {
+            while (current.next != null) {
+                if (current.info.nama.equals(info)) {
+                    System.out.println("Buku tersedia !");
+                    System.out.println("================================");
+                    System.out.println("Judul buku : " + (current.next.info.nama));
+                    System.out.println("Nama penulis : " + (current.next.info.penulis));
+                    System.out.println("Nama penerbit : " + (current.next.info.penerbit));
+                    System.out.println("Harga : Rp." + (current.next.info.harga));
+                    System.out.println("================================");
+                    break;
+                }
+                current = current.next;
+            }
+            if (current.next == null) {
+                Scanner s = new Scanner(System.in);
+                System.out.println("Ini merupakan data terakhir!");
+                while (true) {
+                    System.out.print("Tampilkan atribut buku? [Y/N] > ");
+                    String inp = s.nextLine().toLowerCase();
+                    if (inp.equals("y")) {
+                        System.out.println("================================");
+                        System.out.println("Nama buku : " + (current.info.nama));
+                        System.out.println("Nama penulis : " + (current.info.penulis));
+                        System.out.println("Nama penerbit : " + (current.info.penerbit));
+                        System.out.println("Harga : Rp." + (current.info.harga));
+                        System.out.println("================================");
+                        break;
+                    } else if (inp.equals("n")) {
+                        break;
+                    } else {
+                        System.out.println("Input tidak sesuai");
+                    }
+                }
+            }
+            else if (!info.equals(current.info.nama)){
+                System.out.println("Data tidak ada!");
+            }
+            }
+        }
+
+
+    void cariBefore(String info) {
+        Elemen current = first;
+        Scanner s = new Scanner(System.in);
+        if (current == null) {
+            System.out.println("Data buku kosong!");
+        } else {
+            try {
+                while (!current.info.nama.equals(info)) {
+                    current = current.next;
+                }
+                if (current.prev == null) {
+                    System.out.println("Buku tersebut merupakan buku pertama!");
+                    while (true) {
+                        System.out.print("Tampilkan data ? [Y/N]");
+                        String inp = s.nextLine().toLowerCase();
+                        if (inp.equals("y")) {
+                            System.out.println("================================");
+                            System.out.println("Nama buku : " + (current.info.nama));
+                            System.out.println("Nama penulis : " + (current.info.penulis));
+                            System.out.println("Nama penerbit : " + (current.info.penerbit));
+                            System.out.println("Harga : Rp." + (current.info.harga));
+                            System.out.println("================================");
+                            break;
+                        } else if (inp.equals("n")) {
+                            break;
+                        } else {
+                            System.out.println("Input tidak sesuai");
+                        }
+                    }
+                } else if (current.info.nama.equals(info)) {
+                    System.out.println("Buku tersedia!");
+                    System.out.println("================================");
+                    System.out.println("Judul buku : " + (current.prev.info.nama));
+                    System.out.println("Nama penulis : " + (current.prev.info.penulis));
+                    System.out.println("Nama penerbit : " + (current.prev.info.penerbit));
+                    System.out.println("Harga : Rp." + (current.prev.info.harga));
+                    System.out.println("================================");
+                } else if (current == null) {
+                    System.out.println("Buku tidak ditemukan!");
+                }
+            }catch(NullPointerException e){
+                System.out.println("Buku tidak ditemukan!");
+            }
+        }
+        }
+//            while (current != null) {
+//                if  (info.equals(current.next.prev.info.nama)) {
+//                    System.out.println("Ini merupakan data pertama!");
+//                    Scanner s = new Scanner(System.in);
+//                    }
+//                    break;
+//                }
+//                else if (info.equals(current.info.nama)) {
+//                }
+//                current = current.next;
+//            }
+//            if (current == null) {
+//                System.out.println("Buku tidak tersedia!");
+//            }
+//        }
+
 
     void print() {
         Elemen current = first;
