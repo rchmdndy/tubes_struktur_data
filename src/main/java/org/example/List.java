@@ -230,14 +230,18 @@ public class List {
             }
         }
         }
-    void totalHarga(){
+    void totalHarga() {
         Elemen current = first;
         int sum = 0;
-        while (current != null){
-            sum += current.info.harga;
-            current = current.next;
+        if (current == null) {
+            System.out.println("Belum ada buku pada genre ini yang terjual!");
+        } else {
+            while (current != null) {
+                sum += current.info.harga;
+                current = current.next;
+            }
+            System.out.println("Jumlah harga buku yang terjual = Rp." + sum);
         }
-        System.out.println("Jumlah harga buku yang terjual = Rp." + sum);
     }
     void print() {
         Elemen current = first;
