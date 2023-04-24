@@ -17,8 +17,8 @@ public class Main {
         String nama, penulis, penerbit, info;
         int harga, total;
         int i = 0;
-        Scanner s = new Scanner(System.in);
-        Scanner s2  = new Scanner(System.in);
+        Scanner s = new Scanner(System.in); // Scanner integer
+        Scanner s2  = new Scanner(System.in); // Scanner string
         //Coba fungsi insert first
         pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 2", "test", "test", 45000);
@@ -43,11 +43,71 @@ public class Main {
                         case 2 -> {
                             switch (menu.menu_cari()){
                                 // Cari dengan input user
-                                case 1 -> {}
+                                case 1 -> {
+                                    switch(tidy.kategori_buku()){
+                                        // Pengetahuan
+                                        case 1 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            pengetahuan_tersedia.cari(info);
+                                        }case 2 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            fiksi_tersedia.cari(info);
+                                        }case 3 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            religi_tersedia.cari(info);
+                                        }
+                                    }
+                                }
                                 // Cari data setelah data yang di-input user
-                                case 2 -> {}
+                                case 2 -> {
+                                    switch(tidy.kategori_buku()){
+                                        // Pengetahuan
+                                        case 1 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            pengetahuan_tersedia.cariAfter(info);
+                                        }case 2 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            fiksi_tersedia.cariAfter(info);
+                                        }case 3 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            religi_tersedia.cariAfter(info);
+                                        }
+                                    }
+                                }
                                 // Cari data sebelum data yang di-input user
-                                case 3 -> {}
+                                case 3 -> {
+                                    switch(tidy.kategori_buku()){
+                                        // Pengetahuan
+                                        case 1 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            pengetahuan_tersedia.cariBefore(info);
+                                        }case 2 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            fiksi_tersedia.cariBefore(info);
+                                        }case 3 -> {
+                                            System.out.print("Masukkan nama buku sesuai yang dicari > ");
+                                            info = s2.nextLine();
+                                            tidy.loading();
+                                            religi_tersedia.cariBefore(info);
+                                        }
+                                    }
+                                }
                             }
                         }
                         // Tambah buku
