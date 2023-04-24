@@ -230,23 +230,15 @@ public class List {
             }
         }
         }
-//            while (current != null) {
-//                if  (info.equals(current.next.prev.info.nama)) {
-//                    System.out.println("Ini merupakan data pertama!");
-//                    Scanner s = new Scanner(System.in);
-//                    }
-//                    break;
-//                }
-//                else if (info.equals(current.info.nama)) {
-//                }
-//                current = current.next;
-//            }
-//            if (current == null) {
-//                System.out.println("Buku tidak tersedia!");
-//            }
-//        }
-
-
+    void totalHarga(){
+        Elemen current = first;
+        int sum = 0;
+        while (current != null){
+            sum += current.info.harga;
+            current = current.next;
+        }
+        System.out.println("Jumlah harga buku yang terjual = " + sum);
+    }
     void print() {
         Elemen current = first;
         if(current == null){

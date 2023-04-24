@@ -23,6 +23,9 @@ public class Main {
         pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 2", "test", "test", 45000);
         pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
+        pengetahuan_terjual.insertFirst("Test 3", "test", "test", 45000);
+        pengetahuan_terjual.insertFirst("Test 2", "test", "test", 45000);
+        pengetahuan_terjual.insertFirst("Test 1", "test", "test", 45000);
         do {
             switch (menu.menu_utama()) {
                 // Gudang / tersedia
@@ -359,7 +362,16 @@ public class Main {
                 case 2 -> {
                     switch(menu.menu_penjualan()){
                         // Hitung pendapatan
-                        case 1 -> {}
+                        case 1 -> {
+                            switch (tidy.kategori_buku()){
+                                // Pengetahuan
+                                case 1 -> pengetahuan_terjual.totalHarga();
+                                // Fiksi
+                                case 2 -> fiksi_terjual.totalHarga();
+                                // Religi
+                                case 3 -> religi_terjual.totalHarga();
+                            }
+                        }
                         // Lihat penjualan
                         case 2 -> {}
                         // Hitung jumlah buku yang terjual
