@@ -1,21 +1,21 @@
 package org.example;
 import java.util.Scanner;
 /**
- *
- * @author vina
- */
+ * @author
+ * -vina
+ * -dandy
+ **/
 public class List {
 
-    Elemen first, last;
+    Elemen first;
 
     List() {
         first = null;
-        last = null;
     }
 
     void insertRawData(Elemen[] elemen) {
         for (Elemen eleman : elemen) {
-            insertLast(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
+            insertLast_raw(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
         }
     }
 
@@ -38,6 +38,7 @@ public class List {
                 if (current.info.nama.equals(info)) {
                     lt.insertLast(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                     deleteAt(info);
+                    System.out.println("Buku berhasil dibeli!");
                     break;
                 }
                 current = current.next;
@@ -52,12 +53,13 @@ public class List {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemen_baru;
-            last = elemen_baru;
+            System.out.println("Buku berhasil ditambahkan!");
         }
         else {
             elemen_baru.next = first;
             first.prev = elemen_baru;
             first = elemen_baru;
+            System.out.println("Buku berhasil ditambahkan");
         }
     }
 
@@ -75,6 +77,7 @@ public class List {
                     }
                     elemenBaru.prev = current;
                     current.next = elemenBaru;
+                    System.out.println("Buku berhasil ditambakan!");
                     break;
                 }
                 current = current.next;
@@ -86,7 +89,21 @@ public class List {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemenBaru;
-            last = elemenBaru;
+            System.out.println("Buku berhasil ditambahkan!");
+        }
+        else {
+            Elemen current = first;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = elemenBaru;
+            elemenBaru.prev = current;
+            System.out.println("Buku berhasil ditambahkan!");
+        }
+    }void insertLast_raw(String nama, String penulis, String penerbit, int harga) {
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
+        if (first == null) {
+            first = elemenBaru;
         }
         else {
             Elemen current = first;
@@ -101,16 +118,18 @@ public class List {
     void deleteLast() {
         if (first.next == null){
             first = null;
+            System.out.println("Buku berhasil dihapus!");
         }
         else if (first != null) {
             Elemen current = first;
             Elemen beforeLast = null;
 
-            while (current != last) {
+            while (current.next != null) {
                 beforeLast = current;
                 current = current.next;
             }
             beforeLast.next = null;
+            System.out.println("Buku berhasil dihapus!");
         }
     }
 
@@ -118,6 +137,7 @@ public class List {
         if (first != null) {
             first = first.next;
             first.prev = null;
+            System.out.println("Buku berhasil dihapus!");
         }
         else {
             System.out.println("Data kosong!");
@@ -130,22 +150,22 @@ public class List {
         }
         else{
             Elemen current = first;
-            Elemen beforeLast = null;
+            Elemen beforeLast = current;
             while (!current.info.nama.equals(info)){
                 beforeLast = current;
                 current = current.next;
             }
             if (current.next == null){
                 beforeLast.next = null;
+                System.out.println("Buku berhasil dihapus!");
             } else if (info.equals(first.info.nama)) {
                 first = current.next;
                 first.prev = null;
-                if (first.next == null) {
-                    last = first;
-                }
+                System.out.println("Buku berhasil dihapus!");
             } else if (current.info.nama.equals(info)){
                 current.prev.next = current.next;
                 current.next.prev = current.prev;
+                System.out.println("Buku berhasil dihapus!");
             }else{
                 System.out.println("Data yang dicari tidak ada!");
             }

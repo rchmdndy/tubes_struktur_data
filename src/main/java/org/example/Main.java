@@ -15,10 +15,9 @@ public class Main {
 
         String nama, penulis, penerbit, info;
         int harga, total;
-        int i = 0;
         Scanner s = new Scanner(System.in); // Scanner integer
         Scanner s2  = new Scanner(System.in); // Scanner string
-        //Coba fungsi insert first
+
 
         pengetahuan_tersedia.insertRawData(raw_data.pengetahuan);
         fiksi_tersedia.insertRawData(raw_data.fiksi);
@@ -122,7 +121,7 @@ public class Main {
                                         case 1 -> {
                                             System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                             total = s.nextInt();
-                                            while (i < total) {
+                                            for (int i = 0; i < total; i++){
                                                 System.out.print("Masukkan nama buku : ");
                                                 nama = s2.nextLine();
                                                 System.out.print("Masukkan nama penulis : ");
@@ -149,13 +148,12 @@ public class Main {
                                             System.out.print("Masukkan buku yang dicari > ");
                                             info = s2.nextLine();
                                             pengetahuan_tersedia.insertAt(nama, penulis, penerbit, harga, info);
-                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
                                         System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                         total = s.nextInt();
-                                        while (i < total) {
+                                        for (int i = 0; i < total; i++){
                                             System.out.print("Masukkan nama buku : ");
                                             nama = s2.nextLine();
                                             System.out.print("Masukkan nama penulis : ");
@@ -177,7 +175,7 @@ public class Main {
                                         case 1 -> {
                                         System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                         total = s.nextInt();
-                                        while (i < total) {
+                                        for (int i = 0; i < total; i++) {
                                             System.out.print("Masukkan nama buku : ");
                                             nama = s2.nextLine();
                                             System.out.print("Masukkan nama penulis : ");
@@ -187,7 +185,6 @@ public class Main {
                                             System.out.print("Masukkan harga : ");
                                             harga = s.nextInt();
                                             fiksi_tersedia.insertFirst(nama, penulis, penerbit, harga);
-                                            i++;
                                             }
                                         }
                                         // Tambah buku pada suatu lokasi
@@ -204,13 +201,12 @@ public class Main {
                                             System.out.print("Masukkan buku yang dicari > ");
                                             info = s2.nextLine();
                                             fiksi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
-                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
                                             System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                             total = s.nextInt();
-                                            while (i < total) {
+                                            for (int i = 0; i < total; i++){
                                             System.out.print("Masukkan nama buku : ");
                                             nama = s2.nextLine();
                                             System.out.print("Masukkan nama penulis : ");
@@ -232,7 +228,7 @@ public class Main {
                                         case 1 -> {
                                             System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                             total = s.nextInt();
-                                            while (i < total) {
+                                            for (int i = 0; i < total; i++){
                                                 System.out.print("Masukkan nama buku : ");
                                                 nama = s2.nextLine();
                                                 System.out.print("Masukkan nama penulis : ");
@@ -259,13 +255,12 @@ public class Main {
                                             System.out.print("Masukkan buku yang dicari > ");
                                             info = s2.nextLine();
                                             religi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
-                                            i++;
                                         }
                                         // Tambah belakang
                                         case 3 -> {
                                             System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
                                             total = s.nextInt();
-                                            while (i < total) {
+                                            for (int i = 0; i < total; i++){
                                                 System.out.print("Masukkan nama buku : ");
                                                 nama = s2.nextLine();
                                                 System.out.print("Masukkan nama penulis : ");
