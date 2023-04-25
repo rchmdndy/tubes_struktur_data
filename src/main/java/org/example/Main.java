@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO : fix fungsi beli buku, buat sih, soalnya belum ada
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -20,16 +19,16 @@ public class Main {
         Scanner s = new Scanner(System.in); // Scanner integer
         Scanner s2  = new Scanner(System.in); // Scanner string
         //Coba fungsi insert first
-        pengetahuan_tersedia.insertFirst("Test 3", "test", "test", 45000);
-        pengetahuan_tersedia.insertFirst("Test 2", "test", "test", 45000);
-        pengetahuan_tersedia.insertFirst("Test 1", "test", "test", 45000);
-        pengetahuan_terjual.insertFirst("Test 3", "test", "test", 45000);
-        pengetahuan_terjual.insertFirst("Test 2", "test", "test", 45000);
-        pengetahuan_terjual.insertFirst("Test 1", "test", "test", 45000);
+
+        pengetahuan_tersedia.insertRawData(raw_data.pengetahuan);
+        fiksi_tersedia.insertRawData(raw_data.fiksi);
+        religi_tersedia.insertRawData(raw_data.religi);
+
         do {
             switch (menu.menu_utama()) {
                 // Gudang / tersedia
                 case 1 -> {
+                    tidy.clearScreen();
                     switch(menu.menu_gudang()){
                         // Lihat list buku
                         case 1 -> {

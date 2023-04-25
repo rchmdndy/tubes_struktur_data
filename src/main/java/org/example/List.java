@@ -13,6 +13,12 @@ public class List {
         last = null;
     }
 
+    void insertRawData(Elemen[] elemen) {
+        for (Elemen eleman : elemen) {
+            insertLast(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
+        }
+    }
+
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
@@ -250,17 +256,26 @@ public class List {
         }
         else{
             int i = 0;
-            while(current != null) {
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            System.out.printf("%-5s %-100s %-50s %-50s %-15s\n", "No", "Nama Buku", "Nama Penulis", "Nama Penerbit", "Harga");
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            while (current != null) {
                 i++;
-                System.out.println("================================");
-                System.out.println("Buku " + i);
-                System.out.println("Nama buku : "+(current.info.nama));
-                System.out.println("Nama penulis : "+(current.info.penulis));
-                System.out.println("Nama penerbit : "+(current.info.penerbit));
-                System.out.println("Harga : Rp."+(current.info.harga));
-                System.out.println("================================");
+                System.out.printf("%-5d %-100s %-50s %-50s Rp.%-15d\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                 current = current.next;
             }
+            System.out.println();
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
+            }
+            System.out.println();
+
         }
     }
 }
