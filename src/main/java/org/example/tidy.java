@@ -2,14 +2,6 @@ package org.example;
 import java.util.Scanner;
 
 public class tidy {
-    static int kategori_buku() {
-        Scanner s = new Scanner(System.in);
-        System.out.println("1.Pengetahuan");
-        System.out.println("2.Fiksi");
-        System.out.println("3.Religi");
-        System.out.print("Pilihan : ");
-        return s.nextInt();
-    }
     public static void wait(int ms)
     {
         try

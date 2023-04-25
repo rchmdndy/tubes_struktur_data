@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /* TODO :
+            TRY EVERY FUNCTION, FIX EVERY ERROR
+            - FUNCTION CARI
+        * */
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -31,7 +35,7 @@ public class Main {
                     switch(menu.menu_gudang()){
                         // Lihat list buku
                         case 1 -> {
-                            switch(tidy.kategori_buku()){
+                            switch(menu.genre_buku()){
                                 // Tampilkan seluruh buku dari list pengetahuan
                                 case 1 -> pengetahuan_tersedia.print();
                                 // Tampilkan seluruh buku dari list fiksi
@@ -45,19 +49,23 @@ public class Main {
                             switch (menu.menu_cari()){
                                 // Cari dengan input user
                                 case 1 -> {
-                                    switch(tidy.kategori_buku()){
+                                    switch(menu.genre_buku()){
                                         // Pengetahuan
                                         case 1 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             pengetahuan_tersedia.cari(info);
-                                        }case 2 -> {
+                                        }
+                                        // Fiksi
+                                        case 2 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             fiksi_tersedia.cari(info);
-                                        }case 3 -> {
+                                        }
+                                        // Religi
+                                        case 3 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
@@ -67,19 +75,23 @@ public class Main {
                                 }
                                 // Cari data setelah data yang di-input user
                                 case 2 -> {
-                                    switch(tidy.kategori_buku()){
+                                    switch(menu.genre_buku()){
                                         // Pengetahuan
                                         case 1 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             pengetahuan_tersedia.cariAfter(info);
-                                        }case 2 -> {
+                                        }
+                                        // Fiksi
+                                        case 2 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             fiksi_tersedia.cariAfter(info);
-                                        }case 3 -> {
+                                        }
+                                        // Religi
+                                        case 3 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
@@ -89,19 +101,23 @@ public class Main {
                                 }
                                 // Cari data sebelum data yang di-input user
                                 case 3 -> {
-                                    switch(tidy.kategori_buku()){
+                                    switch(menu.genre_buku()){
                                         // Pengetahuan
                                         case 1 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             pengetahuan_tersedia.cariBefore(info);
-                                        }case 2 -> {
+                                        }
+                                        // Fiksi
+                                        case 2 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
                                             fiksi_tersedia.cariBefore(info);
-                                        }case 3 -> {
+                                        }
+                                        // Religi
+                                        case 3 -> {
                                             System.out.print("Masukkan nama buku sesuai yang dicari > ");
                                             info = s2.nextLine();
                                             tidy.loading();
@@ -113,7 +129,7 @@ public class Main {
                         }
                         // Tambah buku
                         case 3 -> {
-                            switch(tidy.kategori_buku()){
+                            switch(menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> {
                                     switch (menu.menu_add()) {
@@ -279,7 +295,7 @@ public class Main {
                         }
                         // Hapus buku
                         case 4-> {
-                            switch(tidy.kategori_buku()){
+                            switch(menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> {
                                     switch (menu.menu_delete()) {
@@ -332,7 +348,7 @@ public class Main {
                         }
                         // Beli
                         case 5 -> {
-                            switch(tidy.kategori_buku()){
+                            switch(menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> {
                                     pengetahuan_tersedia.print();
@@ -366,7 +382,7 @@ public class Main {
                     switch(menu.menu_penjualan()){
                         // Hitung pendapatan
                         case 1 -> {
-                            switch (tidy.kategori_buku()){
+                            switch (menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> pengetahuan_terjual.totalHarga();
                                 // Fiksi
@@ -377,7 +393,7 @@ public class Main {
                         }
                         // Lihat penjualan
                         case 2 -> {
-                            switch (tidy.kategori_buku()){
+                            switch (menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> pengetahuan_terjual.print();
                                 // Fiksi
@@ -388,7 +404,7 @@ public class Main {
                         }
                         // Hitung jumlah buku yang terjual
                         case 3 -> {
-                            switch (tidy.kategori_buku()){
+                            switch (menu.genre_buku()){
                                 // Pengetahuan
                                 case 1 -> pengetahuan_terjual.hitung();
                                 // Fiksi
@@ -402,6 +418,7 @@ public class Main {
                         default -> System.out.println("Pilihan tidak ada");
                     }
                 }
+                // Keluar
                 case 3 -> System.exit(0);
                 default -> System.out.println("Pilihan tidak ada!");
             }

@@ -3,7 +3,6 @@ import java.util.Scanner;
 /**
  * @author
  * -vina
- * -dandy
  **/
 public class List {
 
@@ -13,94 +12,13 @@ public class List {
         first = null;
     }
 
+    /**FUNGSI MEMASUKKAN RAW DATA*/
     void insertRawData(Elemen[] elemen) {
         for (Elemen eleman : elemen) {
             insertLast_raw(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
         }
     }
-
-    void hitung(){
-        Elemen current = first;
-        int total = 0;
-        while (current != null){
-            total += 1;
-            current = current.next;
-        }
-        System.out.println("Total buku yang terjual adalah > " + total);
-    }
-
-    void beli(String info, List lt) {
-        Elemen current = first;
-        if (current == null) {
-            System.out.println("List kosong!");
-        } else {
-            while (current != null) {
-                if (current.info.nama.equals(info)) {
-                    lt.insertLast(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
-                    deleteAt(info);
-                    System.out.println("Buku berhasil dibeli!");
-                    break;
-                }
-                current = current.next;
-            }
-            if (current == null){
-                System.out.println("Buku yang dibeli tidak terdaftar!");
-            }
-        }
-    }
-
-    void insertFirst(String nama, String penulis, String penerbit, int harga) {
-        Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
-        if (first == null) {
-            first = elemen_baru;
-            System.out.println("Buku berhasil ditambahkan!");
-        }
-        else {
-            elemen_baru.next = first;
-            first.prev = elemen_baru;
-            first = elemen_baru;
-            System.out.println("Buku berhasil ditambahkan");
-        }
-    }
-
-    void insertAt(String nama, String penulis, String penerbit, int harga, String info) {
-        Elemen current = first;
-        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
-        if (first == null) {
-            first = elemenBaru;
-        } else {
-            while (current != null) {
-                if (current.info.nama.equals(info)) {
-                    elemenBaru.next = current.next;
-                    if (current.next != null) {
-                        current.next.prev = elemenBaru;
-                    }
-                    elemenBaru.prev = current;
-                    current.next = elemenBaru;
-                    System.out.println("Buku berhasil ditambakan!");
-                    break;
-                }
-                current = current.next;
-            }
-        }
-    }
-    
-    void insertLast(String nama, String penulis, String penerbit, int harga) {
-        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
-        if (first == null) {
-            first = elemenBaru;
-            System.out.println("Buku berhasil ditambahkan!");
-        }
-        else {
-            Elemen current = first;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = elemenBaru;
-            elemenBaru.prev = current;
-            System.out.println("Buku berhasil ditambahkan!");
-        }
-    }void insertLast_raw(String nama, String penulis, String penerbit, int harga) {
+    void insertLast_raw(String nama, String penulis, String penerbit, int harga) {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemenBaru;
@@ -115,63 +33,37 @@ public class List {
         }
     }
 
-    void deleteLast() {
-        if (first.next == null){
-            first = null;
-            System.out.println("Buku berhasil dihapus!");
-        }
-        else if (first != null) {
-            Elemen current = first;
-            Elemen beforeLast = null;
-
-            while (current.next != null) {
-                beforeLast = current;
-                current = current.next;
-            }
-            beforeLast.next = null;
-            System.out.println("Buku berhasil dihapus!");
-        }
-    }
-
-    void deleteFirst() {
-        if (first != null) {
-            first = first.next;
-            first.prev = null;
-            System.out.println("Buku berhasil dihapus!");
-        }
-        else {
-            System.out.println("Data kosong!");
-        }
-    }
-
-    void deleteAt(String info){
-        if (first == null) {
-            System.out.println("Data kosong!");
+    /**FUNGSI PRINT LIST*/
+    void print() {
+        Elemen current = first;
+        if(current == null){
+            System.out.println("KOSONG");
         }
         else{
-            Elemen current = first;
-            Elemen beforeLast = current;
-            while (!current.info.nama.equals(info)){
-                beforeLast = current;
+            int i = 0;
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            System.out.printf("%-5s %-100s %-50s %-50s %-15s\n", "No", "Nama Buku", "Nama Penulis", "Nama Penerbit", "Harga");
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            while (current != null) {
+                i++;
+                System.out.printf("%-5d %-100s %-50s %-50s Rp.%-15d\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                 current = current.next;
             }
-            if (current.next == null){
-                beforeLast.next = null;
-                System.out.println("Buku berhasil dihapus!");
-            } else if (info.equals(first.info.nama)) {
-                first = current.next;
-                first.prev = null;
-                System.out.println("Buku berhasil dihapus!");
-            } else if (current.info.nama.equals(info)){
-                current.prev.next = current.next;
-                current.next.prev = current.prev;
-                System.out.println("Buku berhasil dihapus!");
-            }else{
-                System.out.println("Data yang dicari tidak ada!");
+            for (int a = 0; a < 230; a++) {
+                System.out.print("=");
             }
+            System.out.println();
+
         }
     }
 
+    /**FUNGSI CARI*/
     void cari(String info) {
         Elemen current = first;
         if (current == null) {
@@ -194,7 +86,8 @@ public class List {
                 System.out.println("Buku tidak tersedia!");
             }
         }
-    }void cariAfter(String info) {
+    }
+    void cariAfter(String info) {
         Elemen current = first;
         if (current == null) {
             System.out.println("Data buku kosong!");
@@ -237,9 +130,7 @@ public class List {
                 System.out.println("Data tidak ada!");
             }
             }
-        }
-
-
+    }
     void cariBefore(String info) {
         Elemen current = first;
         Scanner s = new Scanner(System.in);
@@ -285,6 +176,139 @@ public class List {
             }
         }
         }
+
+    /**FUNGSI TAMBAH / INSERT */
+    void insertFirst(String nama, String penulis, String penerbit, int harga) {
+        Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
+        if (first == null) {
+            first = elemen_baru;
+            System.out.println("Buku berhasil ditambahkan!");
+        }
+        else {
+            elemen_baru.next = first;
+            first.prev = elemen_baru;
+            first = elemen_baru;
+            System.out.println("Buku berhasil ditambahkan");
+        }
+    }
+    void insertAt(String nama, String penulis, String penerbit, int harga, String info) {
+        Elemen current = first;
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
+        if (first == null) {
+            first = elemenBaru;
+        } else {
+            while (current != null) {
+                if (current.info.nama.equals(info)) {
+                    elemenBaru.next = current.next;
+                    if (current.next != null) {
+                        current.next.prev = elemenBaru;
+                    }
+                    elemenBaru.prev = current;
+                    current.next = elemenBaru;
+                    System.out.println("Buku berhasil ditambakan!");
+                    break;
+                }
+                current = current.next;
+            }
+        }
+    }
+    void insertLast(String nama, String penulis, String penerbit, int harga) {
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
+        if (first == null) {
+            first = elemenBaru;
+            System.out.println("Buku berhasil ditambahkan!");
+        }
+        else {
+            Elemen current = first;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = elemenBaru;
+            elemenBaru.prev = current;
+            System.out.println("Buku berhasil ditambahkan!");
+        }
+    }
+
+    /**FUNGSI HAPUS / DELETE*/
+    void deleteFirst() {
+        if (first != null) {
+            first = first.next;
+            first.prev = null;
+            System.out.println("Buku berhasil dihapus!");
+        }
+        else {
+            System.out.println("Data kosong!");
+        }
+    }
+    void deleteAt(String info){
+        if (first == null) {
+            System.out.println("Data kosong!");
+        }
+        else{
+            Elemen current = first;
+            Elemen beforeLast = current;
+            while (!current.info.nama.equals(info)){
+                beforeLast = current;
+                current = current.next;
+            }
+            if (current.next == null){
+                beforeLast.next = null;
+                System.out.println("Buku berhasil dihapus!");
+            } else if (info.equals(first.info.nama)) {
+                first = current.next;
+                first.prev = null;
+                System.out.println("Buku berhasil dihapus!");
+            } else if (current.info.nama.equals(info)){
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+                System.out.println("Buku berhasil dihapus!");
+            }else{
+                System.out.println("Data yang dicari tidak ada!");
+            }
+        }
+    }
+    void deleteLast() {
+        if (first.next == null){
+            first = null;
+            System.out.println("Buku berhasil dihapus!");
+        }
+        else if (first != null) {
+            Elemen current = first;
+            Elemen beforeLast = null;
+
+            while (current.next != null) {
+                beforeLast = current;
+                current = current.next;
+            }
+            beforeLast.next = null;
+            System.out.println("Buku berhasil dihapus!");
+        }
+    }
+
+    /**
+     * FUNGSI BELI
+     * **/
+    void beli(String info, List lt) {
+        Elemen current = first;
+        if (current == null) {
+            System.out.println("List kosong!");
+        } else {
+            while (current != null) {
+                if (current.info.nama.equals(info)) {
+                    lt.insertLast(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
+                    deleteAt(info);
+                    System.out.println("Buku berhasil dibeli!");
+                    break;
+                }
+                current = current.next;
+            }
+            if (current == null){
+                System.out.println("Buku yang dibeli tidak terdaftar!");
+            }
+        }
+    }
+
+    /**FUNGSI UNTUK MENGHITUNG TOTAL PENDAPATAN*/
     void totalHarga() {
         Elemen current = first;
         int sum = 0;
@@ -298,32 +322,15 @@ public class List {
             System.out.println("Jumlah harga buku yang terjual = Rp." + sum);
         }
     }
-    void print() {
-        Elemen current = first;
-        if(current == null){
-            System.out.println("KOSONG");
-        }
-        else{
-            int i = 0;
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
-            }
-            System.out.println();
-            System.out.printf("%-5s %-100s %-50s %-50s %-15s\n", "No", "Nama Buku", "Nama Penulis", "Nama Penerbit", "Harga");
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
-            }
-            System.out.println();
-            while (current != null) {
-                i++;
-                System.out.printf("%-5d %-100s %-50s %-50s Rp.%-15d\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
-                current = current.next;
-            }
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
-            }
-            System.out.println();
 
+    /**FUNGSI UNTUK MENGHITUNG JUMLAH BUKU*/
+    void hitung(){
+        Elemen current = first;
+        int total = 0;
+        while (current != null){
+            total += 1;
+            current = current.next;
         }
+        System.out.println("Total buku yang terjual adalah > " + total);
     }
 }
