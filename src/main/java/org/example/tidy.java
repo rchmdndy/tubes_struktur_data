@@ -10,6 +10,27 @@ public class tidy {
         System.out.print("Pilihan : ");
         return s.nextInt();
     }
+    public static void wait(int ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    static void loading(){
+        System.out.print("Mencari .");
+        tidy.wait(800);
+        System.out.print(".");
+        tidy.wait(800);
+        System.out.print(".");
+        tidy.wait(1500);
+        System.out.println();
+    }
     static boolean confirm() {
         Scanner s = new Scanner(System.in);
         while (true) {
@@ -24,12 +45,8 @@ public class tidy {
             }
         }
     }
-    public static void clearConsole() {
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
-
 }
