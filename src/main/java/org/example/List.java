@@ -19,6 +19,35 @@ public class List {
         }
     }
 
+    void hitung(){
+        Elemen current = first;
+        int total = 0;
+        while (current != null){
+            total += 1;
+            current = current.next;
+        }
+        System.out.println("Total buku yang terjual adalah > " + total);
+    }
+
+    void beli(String info, List lt) {
+        Elemen current = first;
+        if (current == null) {
+            System.out.println("List kosong!");
+        } else {
+            while (current != null) {
+                if (current.info.nama.equals(info)) {
+                    lt.insertLast(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
+                    deleteAt(info);
+                    break;
+                }
+                current = current.next;
+            }
+            if (current == null){
+                System.out.println("Buku yang dibeli tidak terdaftar!");
+            }
+        }
+    }
+
     void insertFirst(String nama, String penulis, String penerbit, int harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
@@ -270,7 +299,6 @@ public class List {
                 System.out.printf("%-5d %-100s %-50s %-50s Rp.%-15d\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                 current = current.next;
             }
-            System.out.println();
             for (int a = 0; a < 230; a++) {
                 System.out.print("=");
             }

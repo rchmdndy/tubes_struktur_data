@@ -341,14 +341,23 @@ public class Main {
                                 // Pengetahuan
                                 case 1 -> {
                                     pengetahuan_tersedia.print();
+                                    System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
+                                    nama = s2.nextLine();
+                                    pengetahuan_tersedia.beli(nama, pengetahuan_terjual);
                                 }
                                 // Fiksi
                                 case 2 -> {
                                     fiksi_tersedia.print();
+                                    System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
+                                    nama = s2.nextLine();
+                                    fiksi_tersedia.beli(nama, fiksi_terjual);
                                 }
                                 // Religi
                                 case 3 -> {
                                     religi_tersedia.print();
+                                    System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
+                                    nama = s2.nextLine();
+                                    religi_tersedia.beli(nama, pengetahuan_terjual);
                                 }
                             }
                         }
@@ -372,9 +381,27 @@ public class Main {
                             }
                         }
                         // Lihat penjualan
-                        case 2 -> {}
+                        case 2 -> {
+                            switch (tidy.kategori_buku()){
+                                // Pengetahuan
+                                case 1 -> pengetahuan_terjual.print();
+                                // Fiksi
+                                case 2 -> fiksi_terjual.print();
+                                // Religi
+                                case 3 -> religi_terjual.print();
+                            }
+                        }
                         // Hitung jumlah buku yang terjual
-                        case 3 -> {}
+                        case 3 -> {
+                            switch (tidy.kategori_buku()){
+                                // Pengetahuan
+                                case 1 -> pengetahuan_terjual.hitung();
+                                // Fiksi
+                                case 2 -> fiksi_terjual.hitung();
+                                // Religi
+                                case 3 -> religi_terjual.hitung();
+                            }
+                        }
                         // Keluar
                         case 4 -> {break;}
                         default -> System.out.println("Pilihan tidak ada");
