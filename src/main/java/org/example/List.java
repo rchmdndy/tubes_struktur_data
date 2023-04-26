@@ -351,7 +351,7 @@ public class List {
     }
 
     /**FUNGSI UNTUK MENGHITUNG TOTAL PENDAPATAN*/
-    void totalHarga() {
+    int totalHarga() {
         Elemen current = first;
         int sum = 0;
         if (current == null) {
@@ -361,8 +361,8 @@ public class List {
                 sum += current.info.harga;
                 current = current.next;
             }
-            System.out.println("Jumlah harga buku yang terjual = Rp." + sum);
         }
+        return sum;
     }
 
     /**FUNGSI UNTUK MENGHITUNG JUMLAH BUKU*/

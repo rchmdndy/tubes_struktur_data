@@ -396,11 +396,25 @@ public class Main {
                                 do {
                                     switch (menu.genre_buku()) {
                                         // Pengetahuan
-                                        case 1 -> pengetahuan_terjual.totalHarga();
+                                        case 1 -> {
+                                            pengetahuan_terjual.totalHarga();
+                                            System.out.println("Jumlah pendapatan pada genre pengetahuan adalah = Rp." + pengetahuan_terjual.totalHarga());
+                                        }
                                         // Fiksi
-                                        case 2 -> fiksi_terjual.totalHarga();
+                                        case 2 -> {
+                                            fiksi_terjual.totalHarga();
+                                            System.out.println("Jumlah pendapatan pada genre fiksi adalah = Rp." + fiksi_terjual.totalHarga());
+                                        }
                                         // Religi
-                                        case 3 -> religi_terjual.totalHarga();
+                                        case 3 -> {
+                                            religi_terjual.totalHarga();
+                                            System.out.println("Jumlah pendapatan pada genre religi adalah = Rp." + religi_terjual.totalHarga());
+                                        }
+                                        // Total dari semua list
+                                        case 4 -> {
+                                            int sum = pengetahuan_terjual.totalHarga() + fiksi_terjual.totalHarga() + religi_terjual.totalHarga();
+                                            System.out.println("Jumlah pendapatan dari semua genre adalah =  Rp." + sum);
+                                        }
                                     }
                                 } while (tidy.confirm("genre"));
                             }
