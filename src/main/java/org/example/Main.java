@@ -3,10 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* TODO :
-            TRY EVERY FUNCTION, FIX EVERY ERROR
-            - FUNCTION CARI
-        */
 
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
