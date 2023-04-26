@@ -92,41 +92,43 @@ public class List {
         if (current == null) {
             System.out.println("Data buku kosong!");
         } else {
-            while (current.next != null) {
+            while (current != null) {
                 if (current.info.nama.equals(info)) {
-                    System.out.println("Buku tersedia !");
-                    System.out.println("================================");
-                    System.out.println("Judul buku : " + (current.next.info.nama));
-                    System.out.println("Nama penulis : " + (current.next.info.penulis));
-                    System.out.println("Nama penerbit : " + (current.next.info.penerbit));
-                    System.out.println("Harga : Rp." + (current.next.info.harga));
-                    System.out.println("================================");
+                    if (current.next == null) {
+                        Scanner s = new Scanner(System.in);
+                        System.out.println("Ini merupakan data terakhir!");
+                        while (true) {
+                            System.out.print("Tampilkan atribut buku? [Y/N] > ");
+                            String inp = s.nextLine().toLowerCase();
+                            if (inp.equals("y")) {
+                                System.out.println("================================");
+                                System.out.println("Nama buku : " + (current.info.nama));
+                                System.out.println("Nama penulis : " + (current.info.penulis));
+                                System.out.println("Nama penerbit : " + (current.info.penerbit));
+                                System.out.println("Harga : Rp." + (current.info.harga));
+                                System.out.println("================================");
+                                break;
+                            } else if (inp.equals("n")) {
+                                break;
+                            } else {
+                                System.out.println("Input tidak sesuai");
+                            }
+                        }
+                    }
+                    else{
+                        System.out.println("Buku tersedia !");
+                        System.out.println("================================");
+                        System.out.println("Judul buku : " + (current.next.info.nama));
+                        System.out.println("Nama penulis : " + (current.next.info.penulis));
+                        System.out.println("Nama penerbit : " + (current.next.info.penerbit));
+                        System.out.println("Harga : Rp." + (current.next.info.harga));
+                        System.out.println("================================");
+                    }
                     break;
                 }
                 current = current.next;
             }
-            if (current.next == null) {
-                Scanner s = new Scanner(System.in);
-                System.out.println("Ini merupakan data terakhir!");
-                while (true) {
-                    System.out.print("Tampilkan atribut buku? [Y/N] > ");
-                    String inp = s.nextLine().toLowerCase();
-                    if (inp.equals("y")) {
-                        System.out.println("================================");
-                        System.out.println("Nama buku : " + (current.info.nama));
-                        System.out.println("Nama penulis : " + (current.info.penulis));
-                        System.out.println("Nama penerbit : " + (current.info.penerbit));
-                        System.out.println("Harga : Rp." + (current.info.harga));
-                        System.out.println("================================");
-                        break;
-                    } else if (inp.equals("n")) {
-                        break;
-                    } else {
-                        System.out.println("Input tidak sesuai");
-                    }
-                }
-            }
-            else if (!info.equals(current.info.nama)){
+            if (current == null) {
                 System.out.println("Data tidak ada!");
             }
             }
@@ -208,7 +210,11 @@ public class List {
                     System.out.println("Buku berhasil ditambakan!");
                     break;
                 }
+
                 current = current.next;
+            }
+            if (current == null) {
+                System.out.println("Buku yang dicari tidak ditemukan!");
             }
         }
     }
@@ -285,9 +291,7 @@ public class List {
         }
     }
 
-    /**
-     * FUNGSI BELI
-     * **/
+    /**FUNGSI BELI*/
     void beli(String info, List lt) {
         Elemen current = first;
         if (current == null) {
@@ -295,8 +299,8 @@ public class List {
         } else {
             while (current != null) {
                 if (current.info.nama.equals(info)) {
-                    lt.insertLast(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
-                    deleteAt(info);
+                    lt.insert_beli(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
+                    delete_beli(info);
                     System.out.println("Buku berhasil dibeli!");
                     break;
                 }
@@ -305,6 +309,44 @@ public class List {
             if (current == null){
                 System.out.println("Buku yang dibeli tidak terdaftar!");
             }
+        }
+    }
+    void delete_beli(String info){
+        if (first == null) {
+            System.out.println("Data kosong!");
+        }
+        else{
+            Elemen current = first;
+            Elemen beforeLast = current;
+            while (!current.info.nama.equals(info)){
+                beforeLast = current;
+                current = current.next;
+            }
+            if (current.next == null){
+                beforeLast.next = null;
+            } else if (info.equals(first.info.nama)) {
+                first = current.next;
+                first.prev = null;
+            } else if (current.info.nama.equals(info)){
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+            }else{
+                System.out.println("Data yang dicari tidak ada!");
+            }
+        }
+    }
+    void insert_beli(String nama, String penulis, String penerbit, int harga) {
+        Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
+        if (first == null) {
+            first = elemenBaru;
+        }
+        else {
+            Elemen current = first;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = elemenBaru;
+            elemenBaru.prev = current;
         }
     }
 
