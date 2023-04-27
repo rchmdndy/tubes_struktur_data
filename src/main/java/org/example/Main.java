@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO : jadiin tampilan hitung jumlah buku yang terjual jadi 1 aja, tampilkan dari semua list
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
