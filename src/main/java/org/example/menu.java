@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class menu {
     static int menu_utama() {
         Scanner s = new Scanner(System.in);
-        System.out.println("=============");
+        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("List buku");
         System.out.println("1. GUDANG");
         System.out.println("2. PENJUALAN");
@@ -14,7 +14,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -25,6 +25,7 @@ public class menu {
     }
     static int genre_buku() {
         Scanner s = new Scanner(System.in);
+        System.out.println("━━━━━━━━━━━━━━━━━━━");
         System.out.println("1.Pengetahuan");
         System.out.println("2.Fiksi");
         System.out.println("3.Religi");
@@ -32,7 +33,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -43,7 +44,7 @@ public class menu {
     }
     static int menu_gudang() {
         Scanner s = new Scanner(System.in);
-        System.out.println("=============");
+        System.out.println("━━━━━━━━━━━━━━━━━━");
         System.out.println("Input fungsi");
         System.out.println("1. Lihat buku");
         System.out.println("2. Cari buku");
@@ -55,7 +56,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -65,7 +66,7 @@ public class menu {
         }
     }static int menu_penjualan() {
         Scanner s = new Scanner(System.in);
-        System.out.println("=============");
+        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("Input fungsi");
         System.out.println("1. Hitung pendapatan");
         System.out.println("2. Lihat buku yang terjual");
@@ -75,7 +76,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -93,7 +94,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -112,7 +113,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
@@ -131,7 +132,7 @@ public class menu {
         while (true) {
             try {
                 int pilihan = s.nextInt();
-                System.out.println("=============");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 return pilihan;
             } catch (InputMismatchException e) {
                 System.out.println("Format input salah!");
