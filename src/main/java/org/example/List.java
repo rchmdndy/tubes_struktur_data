@@ -18,7 +18,7 @@ public class List {
             insertLast_raw(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
         }
     }
-    void insertLast_raw(String nama, String penulis, String penerbit, int harga) {
+    void insertLast_raw(String nama, String penulis, String penerbit, float harga) {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemenBaru;
@@ -41,22 +41,22 @@ public class List {
         }
         else{
             int i = 0;
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
+            for (int a = 0; a < 208; a++) {
+                System.out.print("━");
             }
             System.out.println();
-            System.out.printf("%-5s %-100s %-50s %-50s %-15s\n", "No", "Nama Buku", "Nama Penulis", "Nama Penerbit", "Harga");
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
+            System.out.printf("┃ %-3s ┃ %-95s ┃ %-40s ┃ %-45s ┃ %-9s ┃\n", "NO", "NAMA BUKU", "PENULIS", "PENERBIT", "HARGA");
+            for (int a = 0; a < 208; a++) {
+                System.out.print("━");
             }
             System.out.println();
             while (current != null) {
                 i++;
-                System.out.printf("%-5d %-100s %-50s %-50s Rp.%-15d\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
+                System.out.printf("┃ %-3d ┃ %-95s ┃ %-40s ┃ %-45s ┃ Rp%-7.3f ┃\n", i, current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                 current = current.next;
             }
-            for (int a = 0; a < 230; a++) {
-                System.out.print("=");
+            for (int a = 0; a < 208; a++) {
+                System.out.print("━");
             }
             System.out.println();
 
@@ -180,7 +180,7 @@ public class List {
         }
 
     /**FUNGSI TAMBAH / INSERT */
-    void insertFirst(String nama, String penulis, String penerbit, int harga) {
+    void insertFirst(String nama, String penulis, String penerbit, float harga) {
         Elemen elemen_baru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemen_baru;
@@ -193,7 +193,7 @@ public class List {
             System.out.println("Buku berhasil ditambahkan");
         }
     }
-    void insertAt(String nama, String penulis, String penerbit, int harga, String info) {
+    void insertAt(String nama, String penulis, String penerbit, float harga, String info) {
         Elemen current = first;
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
@@ -218,7 +218,7 @@ public class List {
             }
         }
     }
-    void insertLast(String nama, String penulis, String penerbit, int harga) {
+    void insertLast(String nama, String penulis, String penerbit, float harga) {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemenBaru;
@@ -302,6 +302,7 @@ public class List {
                     lt.insert_beli(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                     delete_beli(info);
                     System.out.println("Buku berhasil dibeli!");
+                    System.out.println("--------------------------------");
                     break;
                 }
                 current = current.next;
@@ -335,7 +336,7 @@ public class List {
             }
         }
     }
-    void insert_beli(String nama, String penulis, String penerbit, int harga) {
+    void insert_beli(String nama, String penulis, String penerbit, float harga) {
         Elemen elemenBaru = new Elemen(nama, penulis, penerbit, harga);
         if (first == null) {
             first = elemenBaru;
@@ -351,28 +352,24 @@ public class List {
     }
 
     /**FUNGSI UNTUK MENGHITUNG TOTAL PENDAPATAN*/
-    int totalHarga() {
+    float totalHarga() {
         Elemen current = first;
-        int sum = 0;
-        if (current == null) {
-            System.out.println("Belum ada buku pada genre ini yang terjual!");
-        } else {
-            while (current != null) {
-                sum += current.info.harga;
-                current = current.next;
-            }
+        float sum = 0;
+        while (current != null) {
+            sum += current.info.harga;
+            current = current.next;
         }
         return sum;
     }
 
     /**FUNGSI UNTUK MENGHITUNG JUMLAH BUKU*/
-    void hitung(){
+    int hitung(){
         Elemen current = first;
         int total = 0;
         while (current != null){
             total += 1;
             current = current.next;
         }
-        System.out.println("Total buku yang terjual adalah > " + total);
+        return total;
     }
 }

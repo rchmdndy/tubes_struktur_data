@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        // TODO : jadiin tampilan hitung jumlah buku yang terjual jadi 1 aja, tampilkan dari semua list
         // Kumpulan list data tersedia
         List pengetahuan_tersedia = new List();
         List fiksi_tersedia = new List();
@@ -14,9 +14,12 @@ public class Main {
         List fiksi_terjual = new List();
         List religi_terjual = new List();
 
+        List[] terjual = {pengetahuan_terjual, fiksi_terjual, religi_terjual};
+
         // Inisiati variable yang dibutuhkan
         String nama, penulis, penerbit, info;
-        int harga, total;
+        int  total;
+        float harga;
         Scanner s = new Scanner(System.in); // Scanner integer
         Scanner s2  = new Scanner(System.in); // Scanner string
 
@@ -156,7 +159,7 @@ public class Main {
                                                 }
                                                 // Tambah buku pada suatu lokasi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku : ");
+                                                    System.out.print("Masukkan nama buku :1 ");
                                                     nama = s2.nextLine();
                                                     System.out.print("Masukkan nama penulis : ");
                                                     penulis = s2.nextLine();
@@ -362,6 +365,7 @@ public class Main {
                                             pengetahuan_tersedia.print();
                                             System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
                                             nama = s2.nextLine();
+                                            System.out.println("--------------------------------");
                                             pengetahuan_tersedia.beli(nama, pengetahuan_terjual);
                                         }
                                         // Fiksi
@@ -369,6 +373,7 @@ public class Main {
                                             fiksi_tersedia.print();
                                             System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
                                             nama = s2.nextLine();
+                                            System.out.println("--------------------------------");
                                             fiksi_tersedia.beli(nama, fiksi_terjual);
                                         }
                                         // Religi
@@ -376,7 +381,8 @@ public class Main {
                                             religi_tersedia.print();
                                             System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
                                             nama = s2.nextLine();
-                                            religi_tersedia.beli(nama, pengetahuan_terjual);
+                                            System.out.println("--------------------------------");
+                                            religi_tersedia.beli(nama, religi_terjual);
                                         }
                                     }
                                 } while (tidy.confirm("beli"));
@@ -393,60 +399,64 @@ public class Main {
                         switch (menu.menu_penjualan()) {
                             // Hitung pendapatan
                             case 1 -> {
-                                do {
-                                    switch (menu.genre_buku()) {
-                                        // Pengetahuan
-                                        case 1 -> {
-                                            pengetahuan_terjual.totalHarga();
-                                            System.out.println("Jumlah pendapatan pada genre pengetahuan adalah = Rp." + pengetahuan_terjual.totalHarga());
-                                        }
-                                        // Fiksi
-                                        case 2 -> {
-                                            fiksi_terjual.totalHarga();
-                                            System.out.println("Jumlah pendapatan pada genre fiksi adalah = Rp." + fiksi_terjual.totalHarga());
-                                        }
-                                        // Religi
-                                        case 3 -> {
-                                            religi_terjual.totalHarga();
-                                            System.out.println("Jumlah pendapatan pada genre religi adalah = Rp." + religi_terjual.totalHarga());
-                                        }
-                                        // Total dari semua list
-                                        case 4 -> {
-                                            int sum = pengetahuan_terjual.totalHarga() + fiksi_terjual.totalHarga() + religi_terjual.totalHarga();
-                                            System.out.println("Jumlah pendapatan dari semua genre adalah =  Rp." + sum);
-                                        }
-                                    }
-                                } while (tidy.confirm("genre"));
+                                System.out.println("Pendapatan dari buku yang terjual pada setiap genre");
+                                for (int i = 0; i < 40; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
+                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Pengetahuan ", pengetahuan_terjual.totalHarga());
+                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Fiksi ", fiksi_terjual.totalHarga());
+                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Religi ", religi_terjual.totalHarga());
+                                for (int i = 0; i < 40; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
+                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n", "Total pendapatan ", (pengetahuan_terjual.totalHarga() + fiksi_terjual.totalHarga() + religi_terjual.totalHarga()));
+                                for (int i = 0; i < 40; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
                             }
                             // Lihat penjualan
                             case 2 -> {
-                                do {
-                                    switch (menu.genre_buku()) {
-                                        // Pengetahuan
-                                        case 1 -> pengetahuan_terjual.print();
-                                        // Fiksi
-                                        case 2 -> fiksi_terjual.print();
-                                        // Religi
-                                        case 3 -> religi_terjual.print();
+                                for (List current : terjual) {
+                                    if (current == pengetahuan_terjual) {
+                                        System.out.println("GENRE PENGETAHUAN");
+                                        current.print();
+                                        System.out.println();
+                                    } else if (current == fiksi_terjual) {
+                                        System.out.println("GENRE FIKSI");
+                                        current.print();
+                                        System.out.println();
+                                    } else if ((current == religi_terjual)) {
+                                        System.out.println("GENRE RELIGI");
+                                        current.print();
+                                        System.out.println();
                                     }
-                                } while (tidy.confirm("genre"));
+                                }
                             }
                             // Hitung jumlah buku yang terjual
                             case 3 -> {
-                                do {
-                                    switch (menu.genre_buku()) {
-                                        // Pengetahuan
-                                        case 1 -> pengetahuan_terjual.hitung();
-                                        // Fiksi
-                                        case 2 -> fiksi_terjual.hitung();
-                                        // Religi
-                                        case 3 -> religi_terjual.hitung();
-                                    }
-                                } while (tidy.confirm("genre"));
+                                System.out.println("Jumlah buku yang terjual pada setiap genre");
+                                for (int i = 0; i < 33; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
+                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Pengetahuan ", pengetahuan_terjual.hitung());
+                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Fiksi ", fiksi_terjual.hitung());
+                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Religi ", religi_terjual.hitung());
+                                for (int i = 0; i < 33; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
+                                System.out.printf("┃ %-24s ┃ %-2d ┃\n", "Total buku yang terjual ", (pengetahuan_terjual.hitung() + fiksi_terjual.hitung() + religi_terjual.hitung()));
+                                for (int i = 0; i < 33; i++){
+                                    System.out.print("━");
+                                }
+                                System.out.println();
                             }
                             // Keluar
-                            case 4 -> {
-                            }
+                            case 4 -> {}
                             default -> System.out.println("Pilihan tidak ada");
                         }
                     }while(tidy.confirm("terjual"));

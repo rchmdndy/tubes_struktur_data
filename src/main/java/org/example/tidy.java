@@ -31,6 +31,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Kembali ke menu utama [y/n]? > ");
                         String menu = s.next().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (menu.equals("y")) {
                             return true;
                         }else if (menu.equals("n")) {
@@ -44,6 +45,7 @@ public class tidy {
                     while (true){
                         System.out.print("Kembali ke menu gudang? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         }else if (pilihan.equals("n")) {
@@ -57,6 +59,7 @@ public class tidy {
                     while (true){
                         System.out.print("Kembali ke menu terjual? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         }else if (pilihan.equals("n")) {
@@ -70,6 +73,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Cari buku lagi? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         } else if (pilihan.equals("n")) {
@@ -83,6 +87,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Tambah buku lagi? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         } else if (pilihan.equals("n")) {
@@ -96,6 +101,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Hapus buku lagi? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         } else if (pilihan.equals("n")) {
@@ -109,6 +115,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Beli buku lagi? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         } else if (pilihan.equals("n")) {
@@ -122,6 +129,7 @@ public class tidy {
                     while (true) {
                         System.out.print("Lihat genre lain? [y/n]> ");
                         pilihan = s.nextLine().toLowerCase();
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         if (pilihan.equals("y")) {
                             return true;
                         } else if (pilihan.equals("n")) {
