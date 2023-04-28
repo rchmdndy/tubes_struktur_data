@@ -5,12 +5,12 @@ public class raw_data {
         new Elemen("Brave New World",
                 "Aldous Huxley",
                 "Chatto & Windus",
-                95f),
+                95.000f),
 
         new Elemen("The Catcher in the Rye",
                 "J.D. Salinger",
                 "Little, Brown and Company",
-                80f),
+                80.000f),
 
         new Elemen("One Hundred Years of Solitude",
                 "Gabriel García Márquez",
