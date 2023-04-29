@@ -50,8 +50,7 @@ public class raw_data {
         new Elemen("Sense and Sensibility",
                 "Jane Austen",
                 "T. Egerton, Military Library",
-                70.000f)
-   };
+                70.000f),};
    static Elemen [] pengetahuan = {
         new Elemen("Thinking, Fast and Slow",
                 "Daniel Kahneman",
@@ -101,8 +100,7 @@ public class raw_data {
         new Elemen("The Emperor's New Mind: Concerning Computers, Minds, and the Laws of Physics",
                 "Roger Penrose",
                 "Oxford University Press",
-                150.000f)
-
+                150.000f),
    };
    static Elemen[] religi = {
         new Elemen("Bilal: From Slave to Companion of the Prophet",
@@ -153,7 +151,6 @@ public class raw_data {
         new Elemen("The History of Islam in Africa",
                 "Abdul Hakeem Idris",
                 "CreateSpace Independent Publishing Platform",
-                139.000f)
-
+                139.000f),
    };
 }

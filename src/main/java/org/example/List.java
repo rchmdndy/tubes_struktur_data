@@ -72,12 +72,12 @@ public class List {
             while (current != null) {
                 if (info.equals(current.info.nama)) {
                     System.out.println("Buku tersedia !");
-                    System.out.println("================================");
+                    System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     System.out.println("Judul buku : " + (current.info.nama));
                     System.out.println("Nama penulis : " + (current.info.penulis));
                     System.out.println("Nama penerbit : " + (current.info.penerbit));
                     System.out.println("Harga : Rp." + (current.info.harga));
-                    System.out.println("================================");
+                    System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     break;
                 }
                 current = current.next;
@@ -101,12 +101,12 @@ public class List {
                             System.out.print("Tampilkan atribut buku? [Y/N] > ");
                             String inp = s.nextLine().toLowerCase();
                             if (inp.equals("y")) {
-                                System.out.println("================================");
+                                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                                 System.out.println("Nama buku : " + (current.info.nama));
                                 System.out.println("Nama penulis : " + (current.info.penulis));
                                 System.out.println("Nama penerbit : " + (current.info.penerbit));
                                 System.out.println("Harga : Rp." + (current.info.harga));
-                                System.out.println("================================");
+                                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                                 break;
                             } else if (inp.equals("n")) {
                                 break;
@@ -117,12 +117,12 @@ public class List {
                     }
                     else{
                         System.out.println("Buku tersedia !");
-                        System.out.println("================================");
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                         System.out.println("Judul buku : " + (current.next.info.nama));
                         System.out.println("Nama penulis : " + (current.next.info.penulis));
                         System.out.println("Nama penerbit : " + (current.next.info.penerbit));
                         System.out.println("Harga : Rp." + (current.next.info.harga));
-                        System.out.println("================================");
+                        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     }
                     break;
                 }
@@ -149,12 +149,12 @@ public class List {
                         System.out.print("Tampilkan data ? [Y/N]");
                         String inp = s.nextLine().toLowerCase();
                         if (inp.equals("y")) {
-                            System.out.println("================================");
+                            System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                             System.out.println("Nama buku : " + (current.info.nama));
                             System.out.println("Nama penulis : " + (current.info.penulis));
                             System.out.println("Nama penerbit : " + (current.info.penerbit));
                             System.out.println("Harga : Rp." + (current.info.harga));
-                            System.out.println("================================");
+                            System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                             break;
                         } else if (inp.equals("n")) {
                             break;
@@ -164,12 +164,12 @@ public class List {
                     }
                 } else if (current.info.nama.equals(info)) {
                     System.out.println("Buku tersedia!");
-                    System.out.println("================================");
+                    System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     System.out.println("Judul buku : " + (current.prev.info.nama));
                     System.out.println("Nama penulis : " + (current.prev.info.penulis));
                     System.out.println("Nama penerbit : " + (current.prev.info.penerbit));
                     System.out.println("Harga : Rp." + (current.prev.info.harga));
-                    System.out.println("================================");
+                    System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 } else if (current == null) {
                     System.out.println("Buku tidak ditemukan!");
                 }
@@ -302,7 +302,7 @@ public class List {
                     lt.insert_beli(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
                     delete_beli(info);
                     System.out.println("Buku berhasil dibeli!");
-                    System.out.println("--------------------------------");
+                    System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     break;
                 }
                 current = current.next;
@@ -363,7 +363,7 @@ public class List {
     }
 
     /**FUNGSI UNTUK MENGHITUNG JUMLAH BUKU*/
-    int hitung(){
+    int hitungBuku(){
         Elemen current = first;
         int total = 0;
         while (current != null){

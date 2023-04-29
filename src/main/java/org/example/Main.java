@@ -16,9 +16,9 @@ public class Main {
         List[] terjual = {pengetahuan_terjual, fiksi_terjual, religi_terjual};
 
         // Inisiati variable yang dibutuhkan
-        String nama, penulis, penerbit, info;
+        String nama, info;
         int  total;
-        float harga;
+        Object[] attributes;
         Scanner s = new Scanner(System.in); // Scanner integer
         Scanner s2  = new Scanner(System.in); // Scanner string
 
@@ -141,51 +141,29 @@ public class Main {
                                             switch (menu.menu_add()) {
                                                 // Tambah depan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        pengetahuan_tersedia.insertFirst(nama, penulis, penerbit, harga);
-                                                        i++;
+                                                        attributes = tidy.input_buku();
+                                                        pengetahuan_tersedia.insertFirst(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                                 // Tambah buku pada suatu lokasi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku :1 ");
-                                                    nama = s2.nextLine();
-                                                    System.out.print("Masukkan nama penulis : ");
-                                                    penulis = s2.nextLine();
-                                                    System.out.print("Masukkan nama penerbit : ");
-                                                    penerbit = s2.nextLine();
-                                                    System.out.print("Masukkan harga : ");
-                                                    harga = s.nextInt();
-                                                    System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
-                                                    System.out.print("Masukkan buku yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    pengetahuan_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
+                                                    total = s.nextInt();
+                                                    for (int i = 0; i < total; i++) {
+                                                        attributes = tidy.input_buku_at();
+                                                        pengetahuan_tersedia.insertAt(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]), ((String) attributes[4]));
+                                                    }
                                                 }
                                                 // Tambah belakang
                                                 case 3 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        pengetahuan_tersedia.insertLast(nama, penulis, penerbit, harga);
-                                                        i++;
+                                                        attributes = tidy.input_buku();
+                                                        pengetahuan_tersedia.insertLast(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                             }
@@ -195,50 +173,29 @@ public class Main {
                                             switch (menu.menu_add()) {
                                                 // Tambah depan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        fiksi_tersedia.insertFirst(nama, penulis, penerbit, harga);
+                                                        attributes = tidy.input_buku();
+                                                        fiksi_tersedia.insertFirst(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                                 // Tambah buku pada suatu lokasi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku : ");
-                                                    nama = s2.nextLine();
-                                                    System.out.print("Masukkan nama penulis : ");
-                                                    penulis = s2.nextLine();
-                                                    System.out.print("Masukkan nama penerbit : ");
-                                                    penerbit = s2.nextLine();
-                                                    System.out.print("Masukkan harga : ");
-                                                    harga = s.nextInt();
-                                                    System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
-                                                    System.out.print("Masukkan buku yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    fiksi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
+                                                    total = s.nextInt();
+                                                    for (int i = 0; i < total; i++) {
+                                                        attributes = tidy.input_buku_at();
+                                                        fiksi_tersedia.insertAt(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]), ((String) attributes[4]));
+                                                    }
                                                 }
                                                 // Tambah belakang
                                                 case 3 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        fiksi_tersedia.insertLast(nama, penulis, penerbit, harga);
-                                                        i++;
+                                                        attributes = tidy.input_buku();
+                                                        fiksi_tersedia.insertLast(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                             }
@@ -248,51 +205,29 @@ public class Main {
                                             switch (menu.menu_add()) {
                                                 // Tambah depan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        religi_tersedia.insertFirst(nama, penulis, penerbit, harga);
-                                                        i++;
+                                                        attributes = tidy.input_buku();
+                                                        religi_tersedia.insertFirst(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                                 // Tambah buku pada suatu lokasi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku : ");
-                                                    nama = s2.nextLine();
-                                                    System.out.print("Masukkan nama penulis : ");
-                                                    penulis = s2.nextLine();
-                                                    System.out.print("Masukkan nama penerbit : ");
-                                                    penerbit = s2.nextLine();
-                                                    System.out.print("Masukkan harga : ");
-                                                    harga = s.nextInt();
-                                                    System.out.println("Buku akan dimasukkan setelah nama buku yang dicari");
-                                                    System.out.print("Masukkan buku yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    religi_tersedia.insertAt(nama, penulis, penerbit, harga, info);
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
+                                                    total = s.nextInt();
+                                                    for (int i = 0; i < total; i++) {
+                                                        attributes = tidy.input_buku_at();
+                                                        religi_tersedia.insertAt(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]), ((String) attributes[4]));
+                                                    }
                                                 }
                                                 // Tambah belakang
                                                 case 3 -> {
-                                                    System.out.print("Masukkan jumlah buku yang ingin dimasukkan > ");
+                                                    System.out.print("Masukkan jumlah judul buku yang ingin dimasukkan > ");
                                                     total = s.nextInt();
                                                     for (int i = 0; i < total; i++) {
-                                                        System.out.print("Masukkan nama buku : ");
-                                                        nama = s2.nextLine();
-                                                        System.out.print("Masukkan nama penulis : ");
-                                                        penulis = s2.nextLine();
-                                                        System.out.print("Masukkan nama penerbit : ");
-                                                        penerbit = s2.nextLine();
-                                                        System.out.print("Masukkan harga : ");
-                                                        harga = s.nextInt();
-                                                        religi_tersedia.insertLast(nama, penulis, penerbit, harga);
-                                                        i++;
+                                                        attributes = tidy.input_buku();
+                                                        religi_tersedia.insertLast(((String) attributes[0]), ((String) attributes[1]), ((String) attributes[2]), ((float) attributes[3]));
                                                     }
                                                 }
                                             }
@@ -397,63 +332,11 @@ public class Main {
                     do {
                         switch (menu.menu_penjualan()) {
                             // Hitung pendapatan
-                            case 1 -> {
-                                System.out.println("Pendapatan dari buku yang terjual pada setiap genre");
-                                for (int i = 0; i < 40; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Pengetahuan ", pengetahuan_terjual.totalHarga());
-                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Fiksi ", fiksi_terjual.totalHarga());
-                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n","Religi ", religi_terjual.totalHarga());
-                                for (int i = 0; i < 40; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                                System.out.printf("┃ %-24s ┃ Rp%-7.3f ┃\n", "Total pendapatan ", (pengetahuan_terjual.totalHarga() + fiksi_terjual.totalHarga() + religi_terjual.totalHarga()));
-                                for (int i = 0; i < 40; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                            }
+                            case 1 -> tidy.hitung_pendapatan(pengetahuan_terjual, fiksi_terjual, religi_terjual);
                             // Lihat penjualan
-                            case 2 -> {
-                                for (List current : terjual) {
-                                    if (current == pengetahuan_terjual) {
-                                        System.out.println("GENRE PENGETAHUAN");
-                                        current.print();
-                                        System.out.println();
-                                    } else if (current == fiksi_terjual) {
-                                        System.out.println("GENRE FIKSI");
-                                        current.print();
-                                        System.out.println();
-                                    } else if ((current == religi_terjual)) {
-                                        System.out.println("GENRE RELIGI");
-                                        current.print();
-                                        System.out.println();
-                                    }
-                                }
-                            }
+                            case 2 -> tidy.lihat_penjualan(terjual, pengetahuan_terjual, fiksi_terjual, religi_terjual);
                             // Hitung jumlah buku yang terjual
-                            case 3 -> {
-                                System.out.println("Jumlah buku yang terjual pada setiap genre");
-                                for (int i = 0; i < 33; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Pengetahuan ", pengetahuan_terjual.hitung());
-                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Fiksi ", fiksi_terjual.hitung());
-                                System.out.printf("┃ %-24s ┃ %-2d ┃\n","Religi ", religi_terjual.hitung());
-                                for (int i = 0; i < 33; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                                System.out.printf("┃ %-24s ┃ %-2d ┃\n", "Total buku yang terjual ", (pengetahuan_terjual.hitung() + fiksi_terjual.hitung() + religi_terjual.hitung()));
-                                for (int i = 0; i < 33; i++){
-                                    System.out.print("━");
-                                }
-                                System.out.println();
-                            }
+                            case 3 -> tidy.total_buku(pengetahuan_terjual, fiksi_terjual, religi_terjual);
                             // Keluar
                             case 4 -> {}
                             default -> System.out.println("Pilihan tidak ada");
