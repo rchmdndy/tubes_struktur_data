@@ -15,12 +15,11 @@ public class Main {
 
         List[] terjual = {pengetahuan_terjual, fiksi_terjual, religi_terjual};
 
-        // Inisiati variable yang dibutuhkan
-        String nama, info;
-        int  total;
+        // Inisiasi variable yang dibutuhkan
+        String info;
+        int total;
         Object[] attributes;
         Scanner s = new Scanner(System.in); // Scanner integer
-        Scanner s2  = new Scanner(System.in); // Scanner string
 
         // Memasukkan raw_data ke dalam list
         pengetahuan_tersedia.insertRawData(raw_data.pengetahuan);
@@ -32,7 +31,6 @@ public class Main {
                 // Gudang / tersedia
                 case 1 -> {
                     do {
-                        tidy.clearScreen();
                         switch (menu.menu_gudang()) {
                             // Lihat list buku
                             case 1 -> {
@@ -56,23 +54,17 @@ public class Main {
                                             switch (menu.genre_buku()) {
                                                 // Pengetahuan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     pengetahuan_tersedia.cari(info);
                                                 }
                                                 // Fiksi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     fiksi_tersedia.cari(info);
                                                 }
                                                 // Religi
                                                 case 3 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     religi_tersedia.cari(info);
                                                 }
                                             }
@@ -82,23 +74,17 @@ public class Main {
                                             switch (menu.genre_buku()) {
                                                 // Pengetahuan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     pengetahuan_tersedia.cariAfter(info);
                                                 }
                                                 // Fiksi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     fiksi_tersedia.cariAfter(info);
                                                 }
                                                 // Religi
                                                 case 3 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     religi_tersedia.cariAfter(info);
                                                 }
                                             }
@@ -108,23 +94,17 @@ public class Main {
                                             switch (menu.genre_buku()) {
                                                 // Pengetahuan
                                                 case 1 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     pengetahuan_tersedia.cariBefore(info);
                                                 }
                                                 // Fiksi
                                                 case 2 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     fiksi_tersedia.cariBefore(info);
                                                 }
                                                 // Religi
                                                 case 3 -> {
-                                                    System.out.print("Masukkan nama buku sesuai yang dicari > ");
-                                                    info = s2.nextLine();
-                                                    tidy.loading();
+                                                    info = tidy.pados();
                                                     religi_tersedia.cariBefore(info);
                                                 }
                                             }
@@ -246,9 +226,7 @@ public class Main {
                                                 case 1 -> pengetahuan_tersedia.deleteFirst();
                                                 // Hapus buku pada suatu lokasi
                                                 case 2 -> {
-                                                    pengetahuan_tersedia.print();
-                                                    System.out.println("Masukkan nama buku yang ingin dihapus : ");
-                                                    info = s2.nextLine();
+                                                    info = tidy.hapusTengah(pengetahuan_tersedia);
                                                     pengetahuan_tersedia.deleteAt(info);
                                                 }
                                                 // Hapus belakang
@@ -262,9 +240,7 @@ public class Main {
                                                 case 1 -> fiksi_tersedia.deleteFirst();
                                                 // Hapus buku pada suatu lokasi
                                                 case 2 -> {
-                                                    fiksi_tersedia.print();
-                                                    System.out.println("Masukkan nama buku yang ingin dihapus : ");
-                                                    info = s2.nextLine();
+                                                    info = tidy.hapusTengah(fiksi_tersedia);
                                                     fiksi_tersedia.deleteAt(info);
                                                 }
                                                 // Hapus belakang
@@ -278,9 +254,7 @@ public class Main {
                                                 case 1 -> religi_tersedia.deleteFirst();
                                                 // Hapus buku pada suatu lokasi
                                                 case 2 -> {
-                                                    religi_tersedia.print();
-                                                    System.out.println("Masukkan nama buku yang ingin dihapus : ");
-                                                    info = s2.nextLine();
+                                                    info = tidy.hapusTengah(religi_tersedia);
                                                     religi_tersedia.deleteAt(info);
                                                 }
                                                 // Hapus belakang
@@ -295,29 +269,11 @@ public class Main {
                                 do {
                                     switch (menu.genre_buku()) {
                                         // Pengetahuan
-                                        case 1 -> {
-                                            pengetahuan_tersedia.print();
-                                            System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
-                                            nama = s2.nextLine();
-                                            System.out.println("--------------------------------");
-                                            pengetahuan_tersedia.beli(nama, pengetahuan_terjual);
-                                        }
+                                        case 1 -> tidy.tumbas(pengetahuan_tersedia, pengetahuan_terjual);
                                         // Fiksi
-                                        case 2 -> {
-                                            fiksi_tersedia.print();
-                                            System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
-                                            nama = s2.nextLine();
-                                            System.out.println("--------------------------------");
-                                            fiksi_tersedia.beli(nama, fiksi_terjual);
-                                        }
+                                        case 2 -> tidy.tumbas(fiksi_tersedia, fiksi_terjual);
                                         // Religi
-                                        case 3 -> {
-                                            religi_tersedia.print();
-                                            System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
-                                            nama = s2.nextLine();
-                                            System.out.println("--------------------------------");
-                                            religi_tersedia.beli(nama, religi_terjual);
-                                        }
+                                        case 3 -> tidy.tumbas(religi_tersedia, religi_terjual);
                                     }
                                 } while (tidy.confirm("beli"));
                             }

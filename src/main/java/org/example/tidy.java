@@ -2,6 +2,8 @@ package org.example;
 import java.util.Scanner;
 
 public class tidy {
+
+    /** FUNGSI UNTUK MENUNGGU*/
     public static void wait(int ms) {
         try
         {
@@ -13,6 +15,7 @@ public class tidy {
         }
     }
 
+    /** FUNGSI UNTUK MENAMPILKAN LOADING*/
     static void loading(){
         System.out.print("Mencari .");
         tidy.wait(800);
@@ -22,6 +25,8 @@ public class tidy {
         tidy.wait(1200);
         System.out.println();
     }
+
+    /** FUNGSI UNTUK KONFIRMASI USER KEMANA AKAN KEMBALI*/
     public static boolean confirm(String option) {
             Scanner s = new Scanner(System.in);
             String pilihan;
@@ -141,11 +146,8 @@ public class tidy {
             }
             return true;
         }
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
+    /** FUNGSI UNTUK MERAPIKAN SAAT MENGINPUT BUKU*/
     public static Object[] input_buku(){
         Scanner ss = new Scanner(System.in);
         Scanner ss2 = new Scanner(System.in);
@@ -160,7 +162,6 @@ public class tidy {
         Object[] attributes = {nama, penulis, penerbit, harga};
         return attributes;
     }
-
     public static Object[] input_buku_at(){
         Scanner ss = new Scanner(System.in);
         Scanner ss2 = new Scanner(System.in);
@@ -179,6 +180,31 @@ public class tidy {
         return attributes;
     }
 
+    /** FUNGSI UNTUK MERAPIKAN BAGIAN GUDANG*/
+    static String pados(){
+        Scanner s2 = new Scanner(System.in);
+        System.out.print("Masukkan nama buku sesuai yang dicari > ");
+        String info = s2.nextLine();
+        tidy.loading();
+        return info;
+    }
+    static String hapusTengah(List list){
+        Scanner s2 = new Scanner(System.in);
+        list.print();
+        System.out.print("Masukkan nama buku yang ingin dihapus : ");
+        String info = s2.nextLine();
+        return info;
+    }
+    static void tumbas(List asal, List tujuan){
+        Scanner s2 = new Scanner(System.in);
+        asal.print();
+        System.out.print("Pilih nama buku yang ingin dibeli (HARUS SESUAI!) > ");
+        String nama = s2.nextLine();
+        System.out.println("--------------------------------");
+        asal.beli(nama, tujuan);
+    }
+
+    /** FUNGSI UNTUK MERAPIKAN BAGIAN PENJUALAN*/
     static void hitung_pendapatan(List pengetahuan, List fiksi, List religi){
         System.out.println("Pendapatan dari buku yang terjual pada setiap genre");
         for (int i = 0; i < 40; i++){
@@ -236,4 +262,7 @@ public class tidy {
         }
         System.out.println();
     }
+
+
+
 }

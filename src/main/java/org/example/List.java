@@ -14,8 +14,8 @@ public class List {
 
     /**FUNGSI MEMASUKKAN RAW DATA*/
     void insertRawData(Elemen[] elemen) {
-        for (Elemen eleman : elemen) {
-            insertLast_raw(eleman.info.nama, eleman.info.penulis, eleman.info.penerbit, eleman.info.harga);
+        for (Elemen current : elemen) {
+            insertLast_raw(current.info.nama, current.info.penulis, current.info.penerbit, current.info.harga);
         }
     }
     void insertLast_raw(String nama, String penulis, String penerbit, float harga) {
@@ -76,7 +76,7 @@ public class List {
                     System.out.println("Judul buku : " + (current.info.nama));
                     System.out.println("Nama penulis : " + (current.info.penulis));
                     System.out.println("Nama penerbit : " + (current.info.penerbit));
-                    System.out.println("Harga : Rp." + (current.info.harga));
+                    System.out.printf("Harga buku : Rp%.3f\n", current.info.harga);
                     System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     break;
                 }
@@ -105,7 +105,7 @@ public class List {
                                 System.out.println("Nama buku : " + (current.info.nama));
                                 System.out.println("Nama penulis : " + (current.info.penulis));
                                 System.out.println("Nama penerbit : " + (current.info.penerbit));
-                                System.out.println("Harga : Rp." + (current.info.harga));
+                                System.out.printf("Harga buku : Rp%.3f\n", current.info.harga);
                                 System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                                 break;
                             } else if (inp.equals("n")) {
@@ -121,7 +121,7 @@ public class List {
                         System.out.println("Judul buku : " + (current.next.info.nama));
                         System.out.println("Nama penulis : " + (current.next.info.penulis));
                         System.out.println("Nama penerbit : " + (current.next.info.penerbit));
-                        System.out.println("Harga : Rp." + (current.next.info.harga));
+                        System.out.printf("Harga buku : Rp%.3f\n", current.next.info.harga);
                         System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                     }
                     break;
@@ -153,7 +153,7 @@ public class List {
                             System.out.println("Nama buku : " + (current.info.nama));
                             System.out.println("Nama penulis : " + (current.info.penulis));
                             System.out.println("Nama penerbit : " + (current.info.penerbit));
-                            System.out.println("Harga : Rp." + (current.info.harga));
+                            System.out.printf("Harga buku : Rp%.3f\n", current.info.harga);
                             System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                             break;
                         } else if (inp.equals("n")) {
@@ -168,7 +168,7 @@ public class List {
                     System.out.println("Judul buku : " + (current.prev.info.nama));
                     System.out.println("Nama penulis : " + (current.prev.info.penulis));
                     System.out.println("Nama penerbit : " + (current.prev.info.penerbit));
-                    System.out.println("Harga : Rp." + (current.prev.info.harga));
+                    System.out.printf("Harga buku : Rp%.3f\n", current.prev.info.harga);
                     System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
                 } else if (current == null) {
                     System.out.println("Buku tidak ditemukan!");

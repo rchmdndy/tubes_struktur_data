@@ -1,56 +1,6 @@
 package org.example;
 
 public class raw_data {
-   static Elemen[] fiksi = {
-        new Elemen("Brave New World",
-                "Aldous Huxley",
-                "Chatto & Windus",
-                95.000f),
-
-        new Elemen("The Catcher in the Rye",
-                "J.D. Salinger",
-                "Little, Brown and Company",
-                80.000f),
-
-        new Elemen("One Hundred Years of Solitude",
-                "Gabriel García Márquez",
-                "Harper & Row",
-                100.000f),
-
-        new Elemen("To Kill a Mockingbird",
-                "Harper Lee",
-                "J. B. Lippincott & Co.",
-                90.000f),
-
-        new Elemen("1984",
-                "George Orwell",
-                "Secker & Warburg",
-                110.000f),
-
-        new Elemen("Animal Farm",
-                "George Orwell",
-                "Secker & Warburg",
-                70.000f),
-
-        new Elemen("The Lord of the Rings",
-                "J.R.R. Tolkien",
-                "Allen & Unwin",
-                130.000f),
-
-        new Elemen("The Hobbit",
-                "J.R.R. Tolkien",
-                "George Allen & Unwin",
-                85.000f),
-
-        new Elemen("Pride and Prejudice",
-                "Jane Austen",
-                "T. Egerton, Whitehall",
-                75.000f),
-
-        new Elemen("Sense and Sensibility",
-                "Jane Austen",
-                "T. Egerton, Military Library",
-                70.000f),};
    static Elemen [] pengetahuan = {
         new Elemen("Thinking, Fast and Slow",
                 "Daniel Kahneman",
@@ -100,7 +50,58 @@ public class raw_data {
         new Elemen("The Emperor's New Mind: Concerning Computers, Minds, and the Laws of Physics",
                 "Roger Penrose",
                 "Oxford University Press",
-                150.000f),
+                150.000f)
+   };
+   static Elemen[] fiksi = {
+        new Elemen("Brave New World",
+                "Aldous Huxley",
+                "Chatto & Windus",
+                95.000f),
+
+        new Elemen("The Catcher in the Rye",
+                "J.D. Salinger",
+                "Little, Brown and Company",
+                80.000f),
+
+        new Elemen("One Hundred Years of Solitude",
+                "Gabriel García Márquez",
+                "Harper & Row",
+                100.000f),
+
+        new Elemen("To Kill a Mockingbird",
+                "Harper Lee",
+                "J. B. Lippincott & Co.",
+                90.000f),
+
+        new Elemen("1984",
+                "George Orwell",
+                "Secker & Warburg",
+                110.000f),
+
+        new Elemen("Animal Farm",
+                "George Orwell",
+                "Secker & Warburg",
+                70.000f),
+
+        new Elemen("The Lord of the Rings",
+                "J.R.R. Tolkien",
+                "Allen & Unwin",
+                130.000f),
+
+        new Elemen("The Hobbit",
+                "J.R.R. Tolkien",
+                "George Allen & Unwin",
+                85.000f),
+
+        new Elemen("Pride and Prejudice",
+                "Jane Austen",
+                "T. Egerton, Whitehall",
+                75.000f),
+
+        new Elemen("Sense and Sensibility",
+                "Jane Austen",
+                "T. Egerton, Military Library",
+                70.000f)
    };
    static Elemen[] religi = {
         new Elemen("Bilal: From Slave to Companion of the Prophet",
@@ -151,6 +152,6 @@ public class raw_data {
         new Elemen("The History of Islam in Africa",
                 "Abdul Hakeem Idris",
                 "CreateSpace Independent Publishing Platform",
-                139.000f),
+                139.000f)
    };
 }
